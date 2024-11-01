@@ -1,204 +1,59 @@
 [
   {
     "id": 1,
-    "x": 476,
-    "y": 501,
-    "selectedAbility": "Ability1",
-    "type": "attaque",
-    "difficulty": "facile",
-    "youtubeLink": "dsqdqs",
-    "trajectory": [
-      {
-        "shape": "circle",
-        "x": 476,
-        "y": 501,
-        "radius": 25
-      },
-      {
-        "shape": "line",
-        "x": 481.8713274350233,
-        "y": 476.69922811615356,
-        "endX": 530,
-        "endY": 277.5
-      },
-      {
-        "shape": "cross",
-        "x": 530,
-        "y": 277.5
-      }
-    ]
-  },
-  {
-    "id": 1,
-    "x": 211,
-    "y": 427,
-    "selectedAbility": "Ability1",
-    "type": "attaque",
-    "difficulty": "facile",
-    "youtubeLink": "dsqdsqdqs",
-    "trajectory": [
-      {
-        "shape": "circle",
-        "x": 211,
-        "y": 427,
-        "radius": 25
-      },
-      {
-        "shape": "line",
-        "x": 229.28171364601042,
-        "y": 409.9477583243353,
-        "endX": 382,
-        "endY": 267.5
-      },
-      {
-        "shape": "cross",
-        "x": 382,
-        "y": 267.5
-      }
-    ]
-  },
-  {
-    "id": 1,
-    "x": 444,
-    "y": 952,
-    "selectedAbility": "Ability2",
-    "type": "defense",
-    "difficulty": "facile",
-    "youtubeLink": "dazda",
-    "trajectory": [
-      {
-        "shape": "circle",
-        "x": 444,
-        "y": 952,
-        "radius": 25
-      },
-      {
-        "shape": "line",
-        "x": 461.0347104230598,
-        "y": 933.7019498087228,
-        "endX": 653,
-        "endY": 727.5
-      },
-      {
-        "shape": "cross",
-        "x": 653,
-        "y": 727.5
-      }
-    ]
-  },
-  {
-    "id": 1,
-    "x": 234,
-    "y": 810,
-    "selectedAbility": "Ability1",
-    "type": "attaque",
-    "difficulty": "facile",
-    "youtubeLink": "dsqdsqdsq",
-    "trajectory": [
-      {
-        "shape": "circle",
-        "x": 234,
-        "y": 810,
-        "radius": 25
-      },
-      {
-        "shape": "line",
-        "x": 255.12320839663195,
-        "y": 796.6280118519176,
-        "endX": 467,
-        "endY": 662.5
-      },
-      {
-        "shape": "cross",
-        "x": 467,
-        "y": 662.5
-      }
-    ]
-  },
-  {
-    "id": 1,
-    "x": 599,
-    "y": 937,
+    "x": 162,
+    "y": 406,
     "selectedAbility": "Ability2",
     "type": "attaque",
     "difficulty": "facile",
-    "youtubeLink": "dqsdq",
+    "youtubeLink": "https://www.youtube.com/embed/9y-iCa9hZUs",
     "trajectory": [
       {
         "shape": "circle",
-        "x": 599,
-        "y": 937,
+        "x": 162,
+        "y": 406,
         "radius": 25
       },
       {
         "shape": "line",
-        "x": 599,
-        "y": 937,
-        "endX": 617.8133333333334,
-        "endY": 786.9866666666667
+        "x": 162,
+        "y": 406,
+        "endX": 303.7866666666667,
+        "endY": 457.6
       },
       {
         "shape": "cross",
-        "x": 617.8133333333334,
-        "y": 786.9866666666667
+        "x": 303.7866666666667,
+        "y": 457.6
       }
     ]
   },
   {
-    "id": 1,
-    "x": 595,
-    "y": 814,
-    "selectedAbility": "Ultimate",
+    "id": 2,
+    "x": 159,
+    "y": 631,
+    "selectedAbility": "Ability2",
     "type": "attaque",
     "difficulty": "facile",
-    "youtubeLink": "dsqdsqd",
+    "youtubeLink": "https://www.youtube.com/embed/FfeGVvtXhQc",
     "trajectory": [
       {
         "shape": "circle",
-        "x": 595,
-        "y": 814,
+        "x": 159,
+        "y": 631,
         "radius": 25
       },
       {
         "shape": "line",
-        "x": 595,
-        "y": 814,
-        "endX": 735,
-        "endY": 492.5
+        "x": 159,
+        "y": 631,
+        "endX": 253,
+        "endY": 638.5
       },
       {
         "shape": "cross",
-        "x": 735,
-        "y": 492.5
-      }
-    ]
-  },
-  {
-    "id": 1,
-    "x": 274,
-    "y": 645,
-    "selectedAbility": "Ability1",
-    "type": "attaque",
-    "difficulty": "facile",
-    "youtubeLink": "https://www.youtube.com/embed/nza5eHRRoQs",
-    "trajectory": [
-      {
-        "shape": "circle",
-        "x": 274,
-        "y": 645,
-        "radius": 25
-      },
-      {
-        "shape": "line",
-        "x": 274,
-        "y": 645,
-        "endX": 779.9466666666667,
-        "endY": 640.2133333333334
-      },
-      {
-        "shape": "cross",
-        "x": 779.9466666666667,
-        "y": 640.2133333333334
+        "x": 253,
+        "y": 638.5
       }
     ]
   }

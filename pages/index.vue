@@ -206,4 +206,6 @@ onMounted(startSyncedCarousels);
 
 <style scoped>
 @import '/assets/styles/pages/index.css';
+
+
 </style>

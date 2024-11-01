@@ -11,7 +11,7 @@
           <div class="carousel-container">
             <div class="carousel agents-carousel">
               <div class="carousel-item">
-                <img @click="goToSelectAgent" :src="agentImage" alt="Agent Image" width="82" height="82" />
+                <img @click="goToSelectAgent" :src="agentImage ?? ''" alt="Agent Image" width="82" height="82" />
               </div>
             </div>
           </div>
@@ -26,7 +26,7 @@
           </div>
         </div>
         <div class="switch-mode">
-          <button @click="mapStore.toggleMode(selectedMap)">
+          <button @click="selectedMap && mapStore.toggleMode(selectedMap)">
             Mode : {{ mapStore.isAttackMode ? 'Attaque' : 'Défense' }}
           </button>
         </div>
@@ -35,7 +35,7 @@
     <main class="main-body">
       <div class="main-content">
         <div class="map-container">
-          <CanvasImage />
+          <CanvasImage @lineupClicked="openLineupView" />
         </div>
       </div>
       <FloatingMenu/>
@@ -52,27 +52,33 @@
         </select>
       </div>
     </footer>
+    <div v-for="(lineup, index) in selectedLineups" :key="index">
+    <LineupView :lineupId="lineup.id" @close="closeLineup(index)" />
+  </div>
   </div>
 </template>
 
-<script setup>
-import { ref, computed, onMounted, nextTick, watch } from 'vue';
+<script lang="ts" setup>
+import { ref, onMounted, nextTick } from 'vue';
 import { useRouter } from 'vue-router';
 import CanvasImage from '~/components/CanvasImage.vue';
 import FloatingMenu from '@/components/FloatingMenu.vue';
 import { useAgentStore } from '~/stores/agentStore';
 import { useMapStore } from '~/stores/mapStore';
+import { useMyLineupStoreStore } from '~/stores/LineupStore';
 
 const router = useRouter();
 const agentStore = useAgentStore();
 const mapStore = useMapStore();
+const lineupStore = useMyLineupStoreStore();
 const selectedAgent = agentStore.selectedAgent;
 const agentImage = agentStore.selectedAgentImage;
 const selectedMap = agentStore.selectedMap;
-const LoadingMapImage = agentStore.selectedMapImage;
+const LoadingMapImage = agentStore.selectedMapImage ?? '';
 
 const theme = ref('dark');
 const selectedTheme = ref('dark');
+const selectedLineups = ref<any[]>([]); // Tableau pour stocker les lineups sélectionnés
 
 // Fonction pour changer de thème et sauvegarder dans le localStorage
 function changeTheme() {
@@ -84,7 +90,7 @@ function changeTheme() {
 }
 
 // Fonction pour appliquer le thème en changeant la classe du body
-function applyTheme(theme) {
+function applyTheme(theme: string) {
   document.body.className = theme;
 }
 
@@ -103,7 +109,9 @@ onMounted(() => {
     changeTheme();
   });
 
-  mapStore.updateMapInteractiveSide(selectedMap);
+  if (selectedMap) {
+    mapStore.updateMapInteractiveSide(selectedMap);
+  }
 });
 
 function goToHomePage() {
@@ -121,6 +129,21 @@ function goToSelectAgent() {
 function goToSelectMap() {
   console.log(`\n==== Navigation: Map Selection for Agent ====\nSelected Agent: ${selectedAgent}`);
   router.push({ path: `/${selectedAgent}/select-map` });
+}
+
+const selectedLineupId = ref<number | null>(null); // Store the selected lineup ID
+
+function openLineupView(lineupId: number) {
+  selectedLineupId.value = lineupId;
+  const lineupData = lineupStore.getLineupById(lineupId);
+  if (lineupData && !selectedLineups.value.includes(lineupData)) {
+    selectedLineups.value.push(lineupData);
+  }
+}
+
+
+function closeLineup(index: number) {
+  selectedLineups.value.splice(index, 1);
 }
 </script>
 
