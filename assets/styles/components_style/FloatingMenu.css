@@ -1,0 +1,222 @@
+.popup-menu {
+  position: absolute;
+  padding: 16px;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+  top: 225px;
+  left: 100px;
+}
+@media (max-width: 1920px) {
+  .popup-menu {
+    top: 150px;
+    left: 50px;
+    padding: 12px;
+  }
+}
+.popup-menu form {
+  background-color: #2f2a41;
+  padding: 25px 35px;
+  border-radius: 8px;
+  width: 450px;
+  box-shadow: 0 4px 25px rgba(0, 0, 0, 0.616);
+  font-family: "Arial, sans-serif";
+  color: #ece8e1;
+}
+@media (max-width: 1920px) {
+  .popup-menu form {
+    width: 400px;
+    padding: 20px 30px;
+    border-radius: 6px;
+  }
+}
+.popup-menu form h1 {
+  font-size: 1.8em;
+  margin-bottom: 20px;
+  color: #845ec2;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+  padding-bottom: 10px;
+}
+@media (max-width: 1920px) {
+  .popup-menu form h1 {
+    font-size: 1.6em;
+    margin-bottom: 16px;
+    padding-bottom: 8px;
+  }
+}
+.popup-menu form label {
+  display: block;
+  margin-bottom: 8px;
+  color: #ff6f91;
+  font-size: 1.1em;
+  font-weight: bold;
+}
+@media (max-width: 1920px) {
+  .popup-menu form label {
+    font-size: 1em;
+    margin-bottom: 6px;
+  }
+}
+.popup-menu form input[type=text],
+.popup-menu form input[type=number] {
+  width: 80%;
+  padding: 12px;
+  margin-bottom: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+  background-color: #3b3553;
+  color: #ece8e1;
+  font-size: 1em;
+  transition: border-color 0.3s;
+}
+.popup-menu form input[type=text]:focus,
+.popup-menu form input[type=number]:focus {
+  border-color: #845ec2;
+  outline: none;
+}
+@media (max-width: 1920px) {
+  .popup-menu form input[type=text],
+  .popup-menu form input[type=number] {
+    padding: 10px;
+    font-size: 0.9em;
+    margin-bottom: 18px;
+  }
+}
+.popup-menu form .abilitie-div h1 {
+  font-size: 1.6em;
+  margin-bottom: 10px;
+}
+@media (max-width: 1920px) {
+  .popup-menu form .abilitie-div h1 {
+    font-size: 1.4em;
+    margin-bottom: 8px;
+  }
+}
+.popup-menu form .abilitie-div .options {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.popup-menu form .abilitie-div .options div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 10px;
+}
+@media (max-width: 1920px) {
+  .popup-menu form .abilitie-div .options div {
+    gap: 16px;
+    margin-bottom: 8px;
+  }
+}
+.popup-menu form .abilitie-div .options div img {
+  cursor: pointer;
+  transition: border-color 0.3s;
+  width: 36px;
+  height: 36px;
+}
+.popup-menu form .abilitie-div .options div img:hover {
+  border-color: #845ec2;
+}
+@media (max-width: 1920px) {
+  .popup-menu form .abilitie-div .options div img {
+    width: 32px;
+    height: 32px;
+  }
+}
+.popup-menu form .sides-div,
+.popup-menu form .difficulty-div {
+  margin-bottom: 10px;
+}
+@media (max-width: 1920px) {
+  .popup-menu form .sides-div,
+  .popup-menu form .difficulty-div {
+    margin-bottom: 8px;
+  }
+}
+.popup-menu form .sides-div h1,
+.popup-menu form .difficulty-div h1 {
+  font-size: 1.6em;
+  margin-bottom: 10px;
+}
+@media (max-width: 1920px) {
+  .popup-menu form .sides-div h1,
+  .popup-menu form .difficulty-div h1 {
+    font-size: 1.4em;
+    margin-bottom: 8px;
+  }
+}
+.popup-menu form .sides-div label,
+.popup-menu form .difficulty-div label {
+  margin-bottom: 5px;
+  font-weight: bold;
+  font-size: 1em;
+}
+@media (max-width: 1920px) {
+  .popup-menu form .sides-div label,
+  .popup-menu form .difficulty-div label {
+    font-size: 0.9em;
+    margin-bottom: 4px;
+  }
+}
+.popup-menu form .sides-div input[type=radio],
+.popup-menu form .difficulty-div input[type=radio] {
+  margin-right: 10px;
+  accent-color: #845ec2;
+}
+@media (max-width: 1920px) {
+  .popup-menu form .sides-div input[type=radio],
+  .popup-menu form .difficulty-div input[type=radio] {
+    margin-right: 8px;
+  }
+}
+.popup-menu form .sides-div .options,
+.popup-menu form .difficulty-div .options {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+@media (max-width: 1920px) {
+  .popup-menu form .sides-div .options,
+  .popup-menu form .difficulty-div .options {
+    gap: 16px;
+  }
+}
+.popup-menu form .sides-div .options div,
+.popup-menu form .difficulty-div .options div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.popup-menu form .group-button {
+  display: flex;
+  justify-content: space-between;
+}
+.popup-menu form .group-button button {
+  padding: 14px 22px;
+  border: none;
+  border-radius: 4px;
+  background-color: #845ec2;
+  color: #ece8e1;
+  font-size: 1.1em;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+.popup-menu form .group-button button:hover {
+  background-color: #6b3fa0;
+}
+.popup-menu form .group-button button:last-child {
+  background-color: #ff6f91;
+}
+.popup-menu form .group-button button:last-child:hover {
+  background-color: #ff3c6a;
+}
+@media (max-width: 1920px) {
+  .popup-menu form .group-button button {
+    padding: 12px 20px;
+    font-size: 1em;
+  }
+}/*# sourceMappingURL=FloatingMenu.css.map */

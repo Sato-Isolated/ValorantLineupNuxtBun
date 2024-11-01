@@ -1,0 +1,33 @@
+{
+  "points": [
+    {
+      "x": 265,
+      "y": 636,
+      "title": "dsqdqs",
+      "icon": "Ability1",
+      "videoUrl": "https://www.youtube.com/watch?v=YW2LC4ovrd4",
+      "difficulty": "Facile",
+      "type": "attaque",
+      "drawingData": [
+        {
+          "tool": "circle",
+          "color": "#ff0000",
+          "lineWidth": 2,
+          "startX": 265,
+          "startY": 635.5,
+          "endX": 280,
+          "endY": 650.5
+        },
+        {
+          "tool": "line",
+          "color": "#ff0000",
+          "lineWidth": 2,
+          "startX": 273.502722323049,
+          "startY": 156.12289156626505,
+          "endX": 753.6297640653357,
+          "endY": 503.2843373493976
+        }
+      ]
+    }
+  ]
+}
