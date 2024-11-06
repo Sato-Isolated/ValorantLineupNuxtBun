@@ -30,7 +30,7 @@ export const useMapStore = defineStore('mapStore', () => {
     SunsetDef: '/images/Valorant/Map Interactive/Sunset_def.webp',
   };
 
-  function setLineupSaved(saved) {
+  function setLineupSaved(saved: boolean) {
     lineupSaved.value = saved;
   }
 
