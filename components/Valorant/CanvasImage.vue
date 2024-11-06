@@ -293,7 +293,7 @@ function getIconPath(ability: string): string {
 async function loadLineups() {
   try {
     console.log('Loading lineups...');
-    const { data, error } = await useFetch(`/api/load-lineups?agent=${agentStore.selectedAgent}&map=${agentStore.selectedMap}&type=${mapStore.mapInteractiveSide}`);
+    const { data, error } = await useFetch(`/api/Valorant/load-lineups?agent=${agentStore.selectedAgent}&map=${agentStore.selectedMap}&type=${mapStore.mapInteractiveSide}`);
     if (error.value) throw new Error(`Erreur de chargement des lineups : ${error.value}`);
 
     const mode = mapStore.isAttackMode ? 'attaque' : 'defense';

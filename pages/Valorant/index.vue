@@ -71,7 +71,7 @@ const agentStore = useAgentStore();
 const router = useRouter();
 
 // Gestion de la navigation
-const goToSelectAgent = () => router.push('/select-agent');
+const goToSelectAgent = () => router.push('/Valorant/select-agent');
 const goToHomePage = () => {
   agentStore.resetStore();
   router.push('/');
@@ -205,5 +205,5 @@ onMounted(startSyncedCarousels);
 
 
 <style scoped>
-@import '/assets/styles/Valorant/pages/index.css';
+@import '@styles/Valorant/pages/index.css';
 </style>

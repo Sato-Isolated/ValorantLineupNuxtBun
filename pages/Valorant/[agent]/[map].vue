@@ -118,17 +118,17 @@ function goToHomePage() {
   console.log("\n==== Navigation: Home Page ====");
   agentStore.resetStore();
   mapStore.resetStore();
-  router.push({ name: 'index' });
+  router.push({ path: '/Valorant/' });
 }
 
 function goToSelectAgent() {
   console.log("\n==== Navigation: Agent Selection ====");
-  router.push({ name: 'select-agent' });
+  router.push({ path: '/Valorant/select-agent' });
 }
 
 function goToSelectMap() {
   console.log(`\n==== Navigation: Map Selection for Agent ====\nSelected Agent: ${selectedAgent}`);
-  router.push({ path: `/${selectedAgent}/select-map` });
+  router.push({ path: `/Valorant/${selectedAgent}/select-map` });
 }
 
 const selectedLineupId = ref<number | null>(null); // Store the selected lineup ID
@@ -148,5 +148,5 @@ function closeLineup(index: number) {
 </script>
 
 <style scoped>
-@import '../../assets/styles/Valorant/pages/InteractiveMap.css';
+@import '@styles/Valorant/pages/InteractiveMap.css';
 </style>

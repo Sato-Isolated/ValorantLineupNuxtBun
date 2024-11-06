@@ -241,12 +241,12 @@ function selectAgent(agentName) {
     if (isMapSelected) {
       // Si une carte est déjà sélectionnée, rediriger vers la page finale avec l'agent et la carte
       router.push({
-        path: `${selectedAgent}/${selectedMap}`
+        path: `/Valorant/${selectedAgent}/${selectedMap}`
       });
     } else {
       // Si aucune carte n'est sélectionnée, rediriger vers la page de sélection de la carte
       router.push({
-        path: `${selectedAgent}/select-map`
+        path: `/Valorant/${selectedAgent}/select-map`
       });
     }
   } catch (error) {
@@ -257,12 +257,12 @@ function selectAgent(agentName) {
 
 function goToHomePage() {
   agentStore.resetStore();
-  router.push('/');
+  router.push('/Valorant/');
 }
 
 </script>
 
 
 <style scoped>
-@import '../assets/styles/Valorant/pages/SelectAgent.css';
+@import '@styles/Valorant/pages/SelectAgent.css';
 </style>

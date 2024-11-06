@@ -111,7 +111,7 @@ async function saveLineup() {
   const agent = agentStore.selectedAgent;
 
   try {
-    const response = await fetch(`/api/get-last-id?map=${map}&agent=${agent}`, {
+    const response = await fetch(`/api/Valorant/get-last-id?map=${map}&agent=${agent}`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
@@ -126,7 +126,7 @@ async function saveLineup() {
     const newId = result.lastId + 1;
     formStore.setId(newId);
 
-    const saveResponse = await fetch('/api/save-lineup', {
+    const saveResponse = await fetch('/api/Valorant/save-lineup', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -164,7 +164,7 @@ async function saveLineup() {
 </script>
 
 <style scoped>
-@import '/assets/styles/Valorant/components_style/FloatingMenu.css';
+@import '@styles/Valorant/components_style/FloatingMenu.css';
 
 .ability-icon {
   transition: transform 0.2s;

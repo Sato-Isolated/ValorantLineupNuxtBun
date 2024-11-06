@@ -70,5 +70,5 @@ watch(lineup, (newVal) => {
 </script>
 
 <style scoped>
-@import '~/assets/styles/Valorant/components_style/LineupView.css';
+@import '@styles/Valorant/components_style/LineupView.css';
 </style>

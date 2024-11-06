@@ -202,7 +202,7 @@ function selectMap(mapName: keyof typeof mapImages) {
   
   try {
     router.push({
-      path: `/${selectedAgent}/${selectedMap}`
+      path: `/Valorant/${selectedAgent}/${selectedMap}`
     });
   } catch (error) {
     console.error('Erreur lors de la navigation :', error);
@@ -220,13 +220,13 @@ function goToPreviousPage() {
 
 function goToHomePage() {
   agentStore.resetStore();
-  router.push('/');
+  router.push('/Valorant/');
 }
 </script>
 
 
 <style scoped>
-@import '../../assets/styles/Valorant/pages/SelectMap.css';
+@import '@styles/Valorant/pages/SelectMap.css';
 /* Responsive Styles */
 @media (max-width: 768px) {
   .header-content {

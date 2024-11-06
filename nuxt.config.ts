@@ -7,5 +7,8 @@ export default defineNuxtConfig({
     '@pinia/nuxt',
     'pinia-plugin-persistedstate',
     '@nuxt/image'
-  ]
+  ],
+  alias: {
+    '@styles': 'C:/Users/ismys/Desktop/ValorantLineupNuxtBun/assets/styles'
+  }
 })
