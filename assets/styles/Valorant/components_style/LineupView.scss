@@ -1,0 +1,163 @@
+// Variables de couleurs
+$primary-color: #845ec2;
+$primary-color-dark: #6b3fa0;
+$text-color: #ece8e1;
+$secondary-text-color: #ff6f91;
+$border-color: rgba(255, 255, 255, 0.2);
+$halo-color: rgba(132, 94, 194, 0.8);
+$background-color: #2f2a41;
+$input-background: #3b3553;
+$input-border: rgba(255, 255, 255, 0.1);
+
+// Breakpoints
+$breakpoints: (
+    "4k": 2560px,
+    "laptopXL": 1920px,
+    "laptopL": 1440px,
+    "laptop": 1024px,
+    "tablet": 768px,
+    "mobileL": 425px,
+    "mobileM": 375px,
+    "mobileS": 320px
+);
+
+@mixin respond-to($breakpoint) {
+    @media (max-width: map-get($breakpoints, $breakpoint)) {
+        @content;
+    }
+}
+
+.lineup-view {
+    position: absolute;
+    border: 1px solid $border-color;
+    padding: 0.3%;
+    background-color: $background-color;
+    color: $text-color;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px $halo-color;
+    width: clamp(200px, 30vw, 300px); // Largeur dynamique avec min et max
+    min-height: 200px;
+    max-width: 927px; // Limite maximale de largeur
+    max-height: 574px; // Limite maximale de hauteur
+    resize: both;
+    overflow: hidden;
+
+    .lineup-header {
+        display: flex;
+        justify-content: flex-end;
+        cursor: move;
+        padding: 0.5% 1%;
+        border-radius: 6px 6px 0 0;
+
+        button {
+            background-color: $background-color;
+            color: red;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: calc(0.8em + 0.5vw); // Taille dynamique
+
+            &:hover {
+                background-color: $secondary-text-color;
+                color: white;
+            }
+        }
+    }
+
+    .lineup-body {
+        padding: 0.9%;
+        border-radius: 0 0 8px 8px;
+        width: calc(100% - 2%);
+        height: calc(100% - 3em); // Soustraction de l'espace occupé par l'en-tête et le padding global
+        display: grid; // Mise en place de grid pour la disposition interne
+
+        p {
+            margin: 0 0 2% 0;
+            font-size: clamp(0.8em, 1vw + 0.9em, 1.2em); // Utilisation de clamp pour la taille dynamique
+            text-transform: uppercase;
+        }
+
+        iframe {
+            width: 100%;
+            height: calc(100% - 2em); // Hauteur dynamique ajustée
+            aspect-ratio: 16 / 9;
+        }
+    }
+
+    // Styles des poignées de redimensionnement avec des transitions pour un effet plus fluide
+    .resize-handle {
+        position: absolute;
+        background-color: $halo-color;
+        opacity: 0.3;
+        transition: background-color 0.2s ease;
+
+        &.top,
+        &.bottom {
+            height: 5px;
+            left: 0;
+            right: 0;
+            cursor: ns-resize;
+        }
+
+        &.left,
+        &.right {
+            width: 5px;
+            top: 0;
+            bottom: 0;
+            cursor: ew-resize;
+        }
+
+        &.top {
+            top: -2px;
+        }
+
+        &.bottom {
+            bottom: -2px;
+        }
+
+        &.left {
+            left: -2px;
+        }
+
+        &.right {
+            right: -2px;
+        }
+
+        &.top-left,
+        &.top-right,
+        &.bottom-left,
+        &.bottom-right {
+            width: 10px;
+            height: 10px;
+            background-color: $primary-color-dark;
+        }
+
+        &.top-left {
+            top: -5px;
+            left: -5px;
+            cursor: nwse-resize;
+        }
+
+        &.top-right {
+            top: -5px;
+            right: -5px;
+            cursor: nesw-resize;
+        }
+
+        &.bottom-left {
+            bottom: -5px;
+            left: -5px;
+            cursor: nesw-resize;
+        }
+
+        &.bottom-right {
+            bottom: -5px;
+            right: -5px;
+            cursor: nwse-resize;
+        }
+
+        &:hover {
+            background-color: $primary-color-dark;
+        }
+    }
+}
