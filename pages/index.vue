@@ -36,14 +36,13 @@ type Site = {
   link: string;
   background: string;
 };
-
+import video from '~/public/images/valorant/Sequenz_01.webm';
 const sites: Site[] = [
-  { id: 0, name: 'Valorant Lineup', description: 'Lineups détaillés pour Valorant', link: '/valorant', background: '/images/valorant/Sequenz 01.webm' },
+  { id: 0, name: 'Valorant Lineup', description: 'Lineups détaillés pour Valorant', link: '/valorant', background: video },
 ];
 
 const sliderBackground = computed(() => sites[activeSlide.value].background);
 const isVideoBackground = computed(() => sliderBackground.value.endsWith('.webm'));
-
 
 const activeSlide = ref(0);
 const autoplay = ref(true);

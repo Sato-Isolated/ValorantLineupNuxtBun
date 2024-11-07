@@ -65,8 +65,6 @@ import { ref, onMounted } from 'vue';
 import { useRouter } from 'vue-router';
 import gsap from 'gsap';
 import { useAgentStore } from '~/stores/Valorant/agentStore';
-
-
 // Store des agents et navigation
 const agentStore = useAgentStore();
 const router = useRouter();
