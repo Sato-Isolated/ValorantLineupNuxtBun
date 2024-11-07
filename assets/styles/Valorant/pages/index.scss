@@ -350,14 +350,15 @@ $breakpoints: (
         color: $primary-color;
         text-decoration: none;
         display: inline-block; // Pour assurer que l'animation affecte le lien correctement
-      
+
         &:hover {
           color: darken($primary-color, 10%);
         }
-      
+
         // Animation pour attirer l'œil
         animation: pulseText 1.5s ease-in-out infinite;
       }
+
       /* Ajuste la position pour bien le centrer */
       em {
         color: $primary-color;
@@ -402,9 +403,12 @@ $breakpoints: (
 }
 
 @keyframes pulseText {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: scale(1);
   }
+
   50% {
     transform: scale(1.05); // Agrandit légèrement le texte
   }

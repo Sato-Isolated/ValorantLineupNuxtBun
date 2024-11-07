@@ -1,0 +1,66 @@
+[
+  {
+    "id": 1,
+    "x": 203,
+    "y": 412,
+    "selectedAbility": "Ability1",
+    "type": "attaque",
+    "difficulty": "facile",
+    "youtubeLink": "https://www.youtube.com/embed/NeYVyZDdn4k",
+    "trajectory": [
+      {
+        "shape": "circle",
+        "x": 203,
+        "y": 412,
+        "radius": 25
+      },
+      {
+        "shape": "line",
+        "x": 203,
+        "y": 412,
+        "endX": 417,
+        "endY": 251.5
+      },
+      {
+        "shape": "cross",
+        "x": 417,
+        "y": 251.5
+      },
+      {
+        "shape": "circle",
+        "x": 203,
+        "y": 412,
+        "radius": 25
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "x": 217,
+    "y": 627,
+    "selectedAbility": "Ability1",
+    "type": "attaque",
+    "difficulty": "facile",
+    "youtubeLink": "https://www.youtube.com/embed/NeYVyZDdn4k",
+    "trajectory": [
+      {
+        "shape": "circle",
+        "x": 217,
+        "y": 627,
+        "radius": 25
+      },
+      {
+        "shape": "line",
+        "x": 217,
+        "y": 627,
+        "endX": 116,
+        "endY": 518.5
+      },
+      {
+        "shape": "cross",
+        "x": 116,
+        "y": 518.5
+      }
+    ]
+  }
+]

@@ -3,7 +3,7 @@
     <div class="header">
       <div class="header-body">
         <div class="header-content">
-          <img @click="goToHomePage" src="/images/Valorant/Logo.webp" alt="Logo de La Brousse" />
+          <img @click="goToHomePage" src="/images/Valorant/Logo.webp" rel="preload" alt="Logo de La Brousse" />
           <h1 @click="goToHomePage">La brousse</h1>
         </div>
         <div class="carousel-wrapper">
@@ -11,7 +11,8 @@
           <div class="carousel-container">
             <div class="carousel agents-carousel">
               <div class="carousel-item">
-                <img @click="goToSelectAgent" :src="agentImage ?? ''" alt="Agent Image" width="82" height="82" />
+                <img @click="goToSelectAgent" :src="agentImage ?? ''" rel="preload" alt="Agent Image" width="82"
+                  height="82" />
               </div>
             </div>
           </div>
@@ -20,7 +21,8 @@
           <div class="carousel-container">
             <div class="carousel maps-carousel">
               <div class="carousel-item">
-                <img @click="goToSelectMap" :src="LoadingMapImage" width="82" height="82" alt="Map Image" />
+                <img @click="goToSelectMap" :src="LoadingMapImage" width="82" height="82" rel="preload"
+                  alt="Map Image" />
               </div>
             </div>
           </div>
@@ -38,11 +40,12 @@
           <CanvasImage @lineupClicked="openLineupView" />
         </div>
       </div>
-      <FloatingMenu :class="[theme]"/>
+      <FloatingMenu :class="[theme]" />
     </main>
     <footer class="footer-body">
       <div class="footer-content">
-        <a href="https://github.com/Sato-Isolated" target="_blank" rel="noopener noreferrer">Made with ❤️ By <em>Mindlated</em></a>
+        <a href="https://github.com/Sato-Isolated" target="_blank" rel="noopener noreferrer">Made with ❤️ By
+          <em>Mindlated</em></a>
       </div>
       <div class="combotheme">
         <label for="theme-select">Choisir un thème :</label>
@@ -53,8 +56,8 @@
       </div>
     </footer>
     <div v-for="(lineup, index) in selectedLineups" :key="index">
-    <LineupView :lineupId="lineup.id" @close="closeLineup(index)" />
-  </div>
+      <LineupView :class="[theme]" :lineupId="lineup.id" @close="closeLineup(index)" />
+    </div>
   </div>
 </template>
 
@@ -63,6 +66,7 @@ import { ref, onMounted } from 'vue';
 import { useRouter } from 'vue-router';
 import CanvasImage from '~/components/Valorant/CanvasImage.vue';
 import FloatingMenu from '~/components/Valorant/FloatingMenu.vue';
+import LineupView from '~/components/Valorant/LineupView.vue';
 import { useAgentStore } from '~/stores/Valorant/agentStore';
 import { useMapStore } from '~/stores/Valorant/mapStore';
 import { useMyLineupStoreStore } from '~/stores/Valorant/LineupStore';

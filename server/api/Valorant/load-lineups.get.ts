@@ -16,11 +16,13 @@ export default defineEventHandler(async (event) => {
   }
 
   const filePath = path.join(process.cwd(), 'assets', 'lineup', map, `${agent}.json`);
+  console.log(`Loading lineups from: ${filePath}`);
 
   try {
     const data = await fs.readFile(filePath, 'utf-8');
     return JSON.parse(data); // Ensure the data is parsed as JSON
   } catch (error) {
+    console.error(`Error reading file: ${filePath}`, error);
     throw createError({
       statusCode: 500,
       statusMessage: 'Error loading lineups',

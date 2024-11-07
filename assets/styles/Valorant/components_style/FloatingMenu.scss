@@ -2,11 +2,13 @@
 
 .pastel-dark {
     background-color: $background-color;
+
     .popup-menu {
         form {
             background-color: $background-color;
             box-shadow: 0 4px 25px rgba(0, 0, 0, 0.616);
             color: $text-color;
+
             h1 {
                 color: $primary-color;
                 border-bottom: 2px solid $border-color;
@@ -21,6 +23,7 @@
                 border: 1px solid $input-border;
                 background-color: $input-background;
                 color: $text-color;
+
                 &:focus {
                     border-color: $primary-color;
                 }
@@ -72,11 +75,13 @@
 
 .dark {
     background-color: $background-color;
+
     .popup-menu {
         form {
             background-color: $background-color;
             box-shadow: 0 4px 25px rgba(0, 0, 0, 0.616);
             color: $text-color;
+
             h1 {
                 color: $primary-color;
                 border-bottom: 2px solid $border-color;
@@ -91,6 +96,7 @@
                 border: 1px solid $input-border;
                 background-color: $input-background;
                 color: $text-color;
+
                 &:focus {
                     border-color: $primary-color;
                 }

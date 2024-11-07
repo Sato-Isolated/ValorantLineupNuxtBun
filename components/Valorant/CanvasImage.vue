@@ -10,7 +10,6 @@ import { ref, watch, onMounted, onUnmounted } from 'vue';
 import { useFormStore } from '~/stores/Valorant/useFormStore';
 import { useMapStore } from '~/stores/Valorant/mapStore';
 import { useAgentStore } from '~/stores/Valorant/agentStore';
-import { useFetch } from '#app';
 import { useMyLineupStoreStore } from '~/stores/Valorant/LineupStore';
 
 // === États et Références ===
@@ -31,6 +30,7 @@ interface Lineup {
   x: number;
   y: number;
   trajectory: any[];
+  type: string; // Add the 'type' property
 }
 
 let lineups = ref<Lineup[]>([]);
@@ -293,24 +293,32 @@ function getIconPath(ability: string): string {
 
 async function loadLineups() {
   try {
-    console.log('Loading lineups...');
-    const { data, error } = await useFetch(`/api/Valorant/load-lineups?agent=${agentStore.selectedAgent}&map=${agentStore.selectedMap}&type=${mapStore.mapInteractiveSide}`);
-    if (error.value) throw new Error(`Erreur de chargement des lineups : ${error.value}`);
-
+    console.log('Chargement des lineups...');
+    
+    // Utilisation de $fetch pour l'appel API
+    const data: Lineup[] = await $fetch(`/api/Valorant/load-lineups`, {
+      params: {
+        agent: agentStore.selectedAgent,
+        map: agentStore.selectedMap,
+        type: mapStore.mapInteractiveSide
+      }
+    });
     const mode = mapStore.isAttackMode ? 'attaque' : 'defense';
-    lineups.value = (data.value || []).filter((lineup: { type: string; }) => lineup.type === mode);
-    const filteredLineups = (data.value || []).filter((lineup: { type: string; }) => lineup.type === mode);
+    
+    // Filtrage des lineups en fonction du mode
+    const filteredLineups = (data || []).filter((lineup) => lineup.type === mode);
 
+    // Met à jour le store lineup avec les lineups filtrés
     lineupStore.lineups = [];
-    filteredLineups.forEach((lineup: any) => {
+    filteredLineups.forEach((lineup) => {
       lineupStore.addLineup(lineup);
     });
 
-    console.log('Lineups loaded:', lineups.value);
-    console.log('LineupStore contents:', lineupStore.lineups);
+    lineups.value = filteredLineups;
     redrawBackgroundImage();
+
   } catch (err) {
-    console.error(err instanceof Error ? err.message : err);
+    console.error("Erreur lors du chargement des lineups :", err);
   }
 }
 

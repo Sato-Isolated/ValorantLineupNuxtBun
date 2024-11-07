@@ -4,7 +4,7 @@
     <header class="header">
       <div class="header-body">
         <div class="header-content">
-          <img @click="goToHomePage" src="/images/Valorant/Logo.webp" alt="Logo de La Brousse" width="96" height="96" />
+          <img @click="goToHomePage" src="/images/Valorant/Logo.webp" rel="preload" alt="Logo de La Brousse" width="96" height="96" />
           <h1 @click="goToHomePage">La Brousse</h1>
         </div>
       </div>
@@ -22,7 +22,7 @@
             <div class="carousel-container">
               <div class="carousel agents-carousel">
                 <div class="carousel-item" v-for="(image, index) in agents" :key="index">
-                  <img :src="image" alt="Agent Image" width="130" height="130" />
+                  <img :src="image" rel="preload" alt="Agent Image" width="130" height="130" />
                 </div>
               </div>
             </div>
@@ -31,14 +31,14 @@
             <div class="carousel-container">
               <div class="carousel maps-carousel">
                 <div class="carousel-item" v-for="(image, index) in maps" :key="index">
-                  <img :src="image" alt="Map Image" width="130" height="130" />
+                  <img :src="image" rel="preload" alt="Map Image" width="130" height="130" />
                 </div>
               </div>
             </div>
           </div>
         </section>
         <section class="halo-sphere">
-          <img src="/images/Valorant/icegif-664.webp" alt="Gif représentant Valorant" width="800" height="800" />
+          <img src="/images/Valorant/icegif-664.webp" rel="preload" alt="Gif représentant Valorant" width="800" height="800" />
         </section>
       </div>
     </main>

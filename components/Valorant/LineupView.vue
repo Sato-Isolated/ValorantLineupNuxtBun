@@ -30,7 +30,6 @@ const isDragging = ref(false);
 const offset = ref<{ x: number; y: number }>({ x: 0, y: 0 });
 
 function startDrag(event: MouseEvent) {
-  console.log('Début du glissement');
   isDragging.value = true;
   offset.value = {
     x: event.clientX - position.value.x,
@@ -50,7 +49,6 @@ function onDrag(event: MouseEvent) {
 }
 
 function stopDrag() {
-  console.log('Arrêt du glissement');
   isDragging.value = false;
   document.removeEventListener('mousemove', onDrag);
   document.removeEventListener('mouseup', stopDrag);
