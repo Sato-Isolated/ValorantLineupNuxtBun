@@ -38,11 +38,11 @@
           <CanvasImage @lineupClicked="openLineupView" />
         </div>
       </div>
-      <FloatingMenu/>
+      <FloatingMenu :class="[theme]"/>
     </main>
     <footer class="footer-body">
       <div class="footer-content">
-        Made with ❤️ By <em>Where Is My Kuronami???</em>
+        <a href="https://github.com/Sato-Isolated" target="_blank" rel="noopener noreferrer">Made with ❤️ By <em>Mindlated</em></a>
       </div>
       <div class="combotheme">
         <label for="theme-select">Choisir un thème :</label>
@@ -59,7 +59,7 @@
 </template>
 
 <script lang="ts" setup>
-import { ref, onMounted, nextTick } from 'vue';
+import { ref, onMounted } from 'vue';
 import { useRouter } from 'vue-router';
 import CanvasImage from '~/components/Valorant/CanvasImage.vue';
 import FloatingMenu from '~/components/Valorant/FloatingMenu.vue';
@@ -76,44 +76,27 @@ const agentImage = agentStore.selectedAgentImage;
 const selectedMap = agentStore.selectedMap;
 const LoadingMapImage = agentStore.selectedMapImage ?? '';
 
-const theme = ref('dark');
-const selectedTheme = ref('dark');
+
 const selectedLineups = ref<any[]>([]); // Tableau pour stocker les lineups sélectionnés
 
-// Fonction pour changer de thème et sauvegarder dans le localStorage
-function changeTheme() {
-  if (import.meta.client) {
-    theme.value = selectedTheme.value;
-    localStorage.setItem('theme', selectedTheme.value);
-    applyTheme(selectedTheme.value);
-  }
-}
+import { ThemeManager } from '~/utils/ThemeManager';
+// Gestion du thème
+const themeManager = new ThemeManager('pastel-dark');
+themeManager.initialize();
 
-// Fonction pour appliquer le thème en changeant la classe du body
-function applyTheme(theme: string) {
-  document.body.className = theme;
-}
+// Liaison des valeurs de thème pour l'interface utilisateur
+const theme = themeManager.theme;
+const selectedTheme = themeManager.selectedTheme;
+const changeTheme = () => themeManager.changeTheme();
 
-// Charger le thème du localStorage une fois que le composant est monté côté client
+// Charger le thème depuis le localStorage lors du montage
 onMounted(() => {
-  if (import.meta.client) {
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme) {
-      selectedTheme.value = savedTheme;
-      theme.value = savedTheme;
-      applyTheme(savedTheme);
-    }
-  }
-
-  nextTick(() => {
-    changeTheme();
-  });
-
   if (selectedMap) {
     mapStore.updateMapInteractiveSide(selectedMap);
   }
 });
 
+// Navigation vers la page d'accueil
 function goToHomePage() {
   console.log("\n==== Navigation: Home Page ====");
   agentStore.resetStore();
@@ -121,18 +104,21 @@ function goToHomePage() {
   router.push({ path: '/Valorant/' });
 }
 
+// Navigation vers la sélection de l'agent
 function goToSelectAgent() {
   console.log("\n==== Navigation: Agent Selection ====");
   router.push({ path: '/Valorant/select-agent' });
 }
 
+// Navigation vers la sélection de la carte pour un agent
 function goToSelectMap() {
   console.log(`\n==== Navigation: Map Selection for Agent ====\nSelected Agent: ${selectedAgent}`);
   router.push({ path: `/Valorant/${selectedAgent}/select-map` });
 }
 
-const selectedLineupId = ref<number | null>(null); // Store the selected lineup ID
+const selectedLineupId = ref<number | null>(null); // Stocke l'ID du lineup sélectionné
 
+// Fonction pour ouvrir la vue du lineup sélectionné
 function openLineupView(lineupId: number) {
   selectedLineupId.value = lineupId;
   const lineupData = lineupStore.getLineupById(lineupId);
@@ -141,11 +127,12 @@ function openLineupView(lineupId: number) {
   }
 }
 
-
+// Fonction pour fermer un lineup
 function closeLineup(index: number) {
   selectedLineups.value.splice(index, 1);
 }
 </script>
+
 
 <style scoped>
 @import '@styles/Valorant/pages/InteractiveMap.css';

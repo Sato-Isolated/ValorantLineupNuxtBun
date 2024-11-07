@@ -75,17 +75,32 @@ import { useMapStore } from '~/stores/Valorant/mapStore';
 const formStore = useFormStore();
 const agentStore = useAgentStore();
 const mapStore = useMapStore();
-const agentAbilities = ref(['Ability1', 'Ability2', 'Grenade', 'Ultimate']);
+
+const agentAbilities = ref<string[]>(['Ability1', 'Ability2', 'Grenade', 'Ultimate']);
 const youtubeError = ref<string | null>(null);
+
+import { ThemeManager } from '~/utils/ThemeManager';
+// Gestion du thème
+const themeManager = new ThemeManager('pastel-dark');
+themeManager.initialize();
+
+// Liaison des valeurs de thème pour l'interface utilisateur
+const theme = themeManager.theme;
+const selectedTheme = themeManager.selectedTheme;
+const changeTheme = () => themeManager.changeTheme();
+
+// Fonction pour obtenir le chemin de l'icône d'une capacité
 function getIconPath(ability: string): string {
   return `/images/Valorant/Abilities/${agentStore.selectedAgent}_${ability}.webp`;
 }
 
-function selectAbility(ability: string) {
+// Sélectionner une capacité et mettre à jour le store
+function selectAbility(ability: string): void {
   formStore.selectedAbility = ability;
 }
 
-function convertYoutubeLink() {
+// Convertir le lien YouTube pour l'intégration
+function convertYoutubeLink(): void {
   const youtubeLink = formStore.youtubeLink;
   const regex = /(?:https?:\/\/)?(?:www\.)?(?:youtube\.com\/(?:[^\/\n\s]+\/\S+\/|(?:v|e(?:mbed)?)\/|\S*?[?&]v=)|youtu\.be\/)([a-zA-Z0-9_-]{11})/;
   const match = youtubeLink.match(regex);
@@ -98,19 +113,25 @@ function convertYoutubeLink() {
   }
 }
 
-
-async function saveLineup() {
-  // Valider le lien YouTube avant d'envoyer la requête
+// Fonction pour sauvegarder le lineup
+async function saveLineup(): Promise<void> {
+  // Valider le lien YouTube
   convertYoutubeLink();
   if (youtubeError.value) {
-    console.error('Error:', youtubeError.value);
+    console.error('Erreur de validation YouTube:', youtubeError.value);
     return;
   }
 
   const map = agentStore.selectedMap;
   const agent = agentStore.selectedAgent;
 
+  if (!map || !agent) {
+    console.error("Erreur : 'selectedMap' ou 'selectedAgent' est manquant.");
+    return;
+  }
+
   try {
+    // Récupérer le dernier ID
     const response = await fetch(`/api/Valorant/get-last-id?map=${map}&agent=${agent}`, {
       method: 'GET',
       headers: {
@@ -119,13 +140,14 @@ async function saveLineup() {
     });
 
     if (!response.ok) {
-      throw new Error('Failed to get last ID');
+      throw new Error('Échec de la récupération du dernier ID');
     }
 
     const result = await response.json();
     const newId = result.lastId + 1;
     formStore.setId(newId);
 
+    // Enregistrer le nouveau lineup
     const saveResponse = await fetch('/api/Valorant/save-lineup', {
       method: 'POST',
       headers: {
@@ -148,7 +170,7 @@ async function saveLineup() {
     });
 
     if (!saveResponse.ok) {
-      throw new Error('Failed to save lineup');
+      throw new Error('Échec de l’enregistrement du lineup');
     }
 
     const saveResult = await saveResponse.json();
@@ -158,10 +180,11 @@ async function saveLineup() {
     mapStore.setLineupSaved(true);
 
   } catch (error) {
-    console.error('Error:', error);
+    console.error('Erreur lors de la sauvegarde du lineup:', error);
   }
 }
 </script>
+
 
 <style scoped>
 @import '@styles/Valorant/components_style/FloatingMenu.css';

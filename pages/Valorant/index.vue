@@ -46,7 +46,7 @@
     <!-- Footer -->
     <footer class="footer-body">
       <div class="footer-content">
-        Made with ❤️ By <em>Where Is My Kuronami???</em>
+        <a href="https://github.com/Sato-Isolated" target="_blank" rel="noopener noreferrer">Made with ❤️ By <em>Mindlated</em></a>
       </div>
 
       <div class="combotheme">
@@ -60,57 +60,40 @@
   </div>
 </template>
 
-<script setup>
-import { ref, onMounted, nextTick } from 'vue';
+<script setup lang="ts">
+import { ref, onMounted } from 'vue';
 import { useRouter } from 'vue-router';
 import gsap from 'gsap';
 import { useAgentStore } from '~/stores/Valorant/agentStore';
+
 
 // Store des agents et navigation
 const agentStore = useAgentStore();
 const router = useRouter();
 
-// Gestion de la navigation
+// Navigation
 const goToSelectAgent = () => router.push('/Valorant/select-agent');
 const goToHomePage = () => {
   agentStore.resetStore();
   router.push('/');
 };
-
+import { ThemeManager } from '~/utils/ThemeManager';
 // Gestion du thème
-const theme = ref('pastel-dark');
-const selectedTheme = ref('pastel-dark');
+const themeManager = new ThemeManager('pastel-dark');
+themeManager.initialize();
 
-// Fonction pour changer de thème et sauvegarder dans le localStorage
-const changeTheme = () => {
-  if (import.meta.client) {
-    theme.value = selectedTheme.value;
-    localStorage.setItem('theme', selectedTheme.value);
-    applyTheme(selectedTheme.value);
-  }
-};
-
-// Appliquer le thème en changeant la classe du body
-const applyTheme = (theme) => {
-  document.body.className = theme;
-};
-
-// Charger le thème du localStorage une fois monté
-onMounted(() => {
-  if (import.meta.client) {
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme) {
-      selectedTheme.value = savedTheme;
-      theme.value = savedTheme;
-      applyTheme(savedTheme);
-    }
-  }
-  nextTick(changeTheme);
-});
+// Liaison des valeurs de thème pour l'interface utilisateur
+const theme = themeManager.theme;
+const selectedTheme = themeManager.selectedTheme;
+const changeTheme = () => themeManager.changeTheme();
 
 // Fonction pour mélanger un tableau (Fisher-Yates Shuffle)
-const shuffleArray = (array) => {
-  return array.sort(() => Math.random() - 0.5);
+const shuffleArray = <T>(array: T[]): T[] => {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+  return array;
 };
 
 // Images des agents et maps
@@ -168,8 +151,8 @@ const maps = ref(balanceMaps());
 
 // Démarrer les carousels synchronisés avec une pause entre chaque slide
 const startSyncedCarousels = () => {
-  const agentsCarousel = document.querySelector('.agents-carousel');
-  const mapsCarousel = document.querySelector('.maps-carousel');
+  const agentsCarousel = document.querySelector('.agents-carousel') as HTMLElement | null;
+  const mapsCarousel = document.querySelector('.maps-carousel') as HTMLElement | null;
 
   if (!agentsCarousel || !mapsCarousel) return;
 

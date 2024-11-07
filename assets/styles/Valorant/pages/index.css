@@ -255,6 +255,15 @@
   transform: translateX(-50%);
   /* Ajuste la position pour bien le centrer */
 }
+.grid-container .footer-body .footer-content a {
+  color: #1f8eff;
+  text-decoration: none;
+  display: inline-block;
+  animation: pulseText 1.5s ease-in-out infinite;
+}
+.grid-container .footer-body .footer-content a:hover {
+  color: #0074eb;
+}
 .grid-container .footer-body .footer-content em {
   color: #1f8eff;
 }
@@ -285,4 +294,13 @@
 }
 .grid-container img {
   border-radius: 2rem;
+}
+
+@keyframes pulseText {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
 }/*# sourceMappingURL=index.css.map */

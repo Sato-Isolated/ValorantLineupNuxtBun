@@ -1,13 +1,135 @@
-// Variables de couleurs
-$primary-color: #845ec2;
-$primary-color-dark: #6b3fa0;
-$text-color: #ece8e1;
-$secondary-text-color: #ff6f91;
-$border-color: rgba(255, 255, 255, 0.2);
-$halo-color: rgba(132, 94, 194, 0.8);
-$background-color: #2f2a41;
-$input-background: #3b3553;
-$input-border: rgba(255, 255, 255, 0.1);
+@import '../themes/theme-pastel-dark';
+
+.pastel-dark {
+  background-color: $background-color;
+
+  .grid-container {
+    .header {
+      .header-content {
+        h1 {
+          color: $text-color;
+        }
+      }
+    }
+
+    .main-body {
+      .main-content {
+        .content {
+          h1 {
+            color: $text-color;
+          }
+
+          h2 {
+            color: $text-color;
+          }
+
+          .carousel-wrapper {
+            border: 0.5rem solid $primary-color;
+          }
+        }
+
+        .halo-sphere {
+          &::before {
+            background: radial-gradient(circle, $halo-color, transparent 80%);
+          }
+        }
+
+        h1 {
+          text-shadow: 0.125rem 0.125rem 0.25rem $secondary-text-color;
+        }
+      }
+    }
+
+    .footer-body {
+      background-color: $background-color;
+
+      .footer-content {
+        color: $text-color;
+
+        em {
+          color: $primary-color;
+        }
+      }
+    }
+
+    // Boutons avec clamp pour une taille flexible
+    button {
+      background-color: $primary-color;
+      color: $text-color;
+
+      &:hover {
+        background-color: $primary-color-dark;
+      }
+    }
+  }
+}
+
+@import '../themes/theme-dark';
+
+.dark {
+  background-color: $background-color;
+
+  .grid-container {
+    .header {
+      .header-content {
+        h1 {
+          color: $text-color;
+        }
+      }
+    }
+
+    .main-body {
+      .main-content {
+        .content {
+          h1 {
+            color: $text-color;
+          }
+
+          h2 {
+            color: $text-color;
+          }
+
+          .carousel-wrapper {
+            border: 0.5rem solid $primary-color;
+          }
+        }
+
+        .halo-sphere {
+          &::before {
+            background: radial-gradient(circle, $halo-color, transparent 80%);
+          }
+        }
+
+        h1 {
+          text-shadow: 0.125rem 0.125rem 0.25rem $secondary-text-color;
+        }
+      }
+    }
+
+    .footer-body {
+      background-color: $background-color;
+
+      .footer-content {
+        color: $text-color;
+
+        em {
+          color: $primary-color;
+        }
+      }
+    }
+
+    // Boutons avec clamp pour une taille flexible
+    button {
+      background-color: $primary-color;
+      color: $text-color;
+
+      &:hover {
+        background-color: $primary-color-dark;
+      }
+    }
+  }
+}
+
 
 // Breakpoints
 $breakpoints: (

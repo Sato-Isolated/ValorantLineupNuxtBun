@@ -1,5 +1,3 @@
-// _theme-dark.scss
-
 $primary-color: #1f8eff;
 $primary-color-dark: #0062a3;
 $text-color: #ece8e1;
@@ -7,3 +5,5 @@ $secondary-text-color: #c51d1d;
 $border-color: rgba(255, 255, 255, 0.3);
 $halo-color: rgba(0, 142, 255, 0.8);
 $background-color:rgb(16, 23, 40);
+$input-background: #2c273b; // Un ton légèrement plus sombre que le fond, ajoutant un contraste subtil.
+$input-border: rgba(255, 255, 255, 0.15); // Un peu plus opaque pour donner un effet de bordure subtil sans être trop présent.

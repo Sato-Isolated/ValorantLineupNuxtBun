@@ -148,8 +148,7 @@
 
     <footer class="footer-body">
       <div class="footer-content">
-        Made with ❤️ By <em>Where Is My Kuronami???</em>
-
+        <a href="https://github.com/Sato-Isolated" target="_blank" rel="noopener noreferrer">Made with ❤️ By <em>Mindlated</em></a>
       </div>
 
       <div class="combotheme">
@@ -163,7 +162,8 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
+import { ref, onMounted, nextTick } from 'vue';
 import { useRouter } from 'vue-router';
 import { useAgentStore } from '~/stores/Valorant/agentStore';
 
@@ -172,48 +172,26 @@ const agentStore = useAgentStore();
 
 // Récupérer l'image de la carte et déterminer si une carte est déjà sélectionnée
 const mapImage = agentStore.selectedMapImage;
-const selectedMap = agentStore.selectedMap;  // Vérifier s'il y a une carte sélectionnée
-const isMapSelected = selectedMap !== null;  // Booléen qui est false si la carte est null
+const selectedMap = agentStore.selectedMap;
+const isMapSelected = selectedMap !== null;
 
-let selectedAgent = null;
+// Type pour le nom de l'agent
+let selectedAgent: string | null = null;
 
 // Gestion du thème
-const theme = ref('dark');
-const selectedTheme = ref('dark');
+import { ThemeManager } from '~/utils/ThemeManager';
+// Gestion du thème
+const themeManager = new ThemeManager('pastel-dark');
+themeManager.initialize();
 
-// Fonction pour changer de thème et sauvegarder dans le localStorage
-function changeTheme() {
-  if (import.meta.client) {
-    theme.value = selectedTheme.value;
-    localStorage.setItem('theme', selectedTheme.value);
-    applyTheme(selectedTheme.value);
-  }
-}
+// Liaison des valeurs de thème pour l'interface utilisateur
+const theme = themeManager.theme;
+const selectedTheme = themeManager.selectedTheme;
+const changeTheme = () => themeManager.changeTheme();
 
-// Fonction pour appliquer le thème en changeant la classe du body
-function applyTheme(theme) {
-  document.body.className = theme;
-}
-
-// Charger le thème du localStorage une fois que le composant est monté côté client
-onMounted(() => {
-  if (import.meta.client) {
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme) {
-      selectedTheme.value = savedTheme;
-      theme.value = savedTheme;
-      applyTheme(savedTheme);
-    }
-  }
-
-  nextTick(() => {
-    changeTheme();
-  });
-});
-
-
-function selectAgent(agentName) {
-  const agentImages = {
+// Fonction pour sélectionner un agent
+function selectAgent(agentName: string) {
+  const agentImages: Record<string, string> = {
     Kayo: '/images/Valorant/Agent/KAYO_icon.webp',
     Gekko: '/images/Valorant/Agent/Gekko_icon.webp',
     Sova: '/images/Valorant/Agent/Sova_icon.webp',
@@ -228,7 +206,7 @@ function selectAgent(agentName) {
     Viper: '/images/Valorant/Agent/Viper_icon.webp',
     Omen: '/images/Valorant/Agent/Omen_icon.webp',
     Clove: '/images/Valorant/Agent/Clove_icon.webp',
-    Harbor: '/images/Valorant/Agent/Habor_icon.webp',
+    Harbor: '/images/Valorant/Agent/Harbor_icon.webp', // Correction orthographique
     Brimstone: '/images/Valorant/Agent/Brimstone_icon.webp',
     Astra: '/images/Valorant/Agent/Astra_icon.webp',
   };
@@ -238,29 +216,23 @@ function selectAgent(agentName) {
   agentStore.setAgent(agentName, agentImage);
 
   try {
-    if (isMapSelected) {
-      // Si une carte est déjà sélectionnée, rediriger vers la page finale avec l'agent et la carte
-      router.push({
-        path: `/Valorant/${selectedAgent}/${selectedMap}`
-      });
-    } else {
-      // Si aucune carte n'est sélectionnée, rediriger vers la page de sélection de la carte
-      router.push({
-        path: `/Valorant/${selectedAgent}/select-map`
-      });
-    }
+    const targetPath = isMapSelected
+      ? `/Valorant/${selectedAgent}/${selectedMap}`
+      : `/Valorant/${selectedAgent}/select-map`;
+    router.push({ path: targetPath });
   } catch (error) {
     console.error("Erreur lors de la navigation :", error);
     alert("Une erreur est survenue lors de la navigation. Veuillez réessayer.");
   }
 }
 
+// Fonction pour revenir à la page d'accueil
 function goToHomePage() {
   agentStore.resetStore();
   router.push('/Valorant/');
 }
-
 </script>
+
 
 
 <style scoped>

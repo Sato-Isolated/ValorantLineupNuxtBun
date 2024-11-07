@@ -25,16 +25,12 @@ const lineup = computed(() => {
   return lineupData;
 });
 
-const position = ref({ x: 100, y: 100 });
+const position = ref<{ x: number; y: number }>({ x: 100, y: 100 });
 const isDragging = ref(false);
-const offset = ref({ x: 0, y: 0 });
-
-watch(position, (newPosition) => {
-  console.log('Position updated:', newPosition);
-});
+const offset = ref<{ x: number; y: number }>({ x: 0, y: 0 });
 
 function startDrag(event: MouseEvent) {
-  console.log('Start dragging');
+  console.log('Début du glissement');
   isDragging.value = true;
   offset.value = {
     x: event.clientX - position.value.x,
@@ -50,24 +46,26 @@ function onDrag(event: MouseEvent) {
       x: event.clientX - offset.value.x,
       y: event.clientY - offset.value.y
     };
-    console.log('Dragging to position:', position.value);
   }
 }
 
 function stopDrag() {
-  console.log('Stop dragging');
+  console.log('Arrêt du glissement');
   isDragging.value = false;
   document.removeEventListener('mousemove', onDrag);
   document.removeEventListener('mouseup', stopDrag);
 }
 
+// Observer les changements de lineup et vérifier son existence
 watch(lineup, (newVal) => {
-  console.log('Lineup récupéré:', newVal);
-  if (!newVal) {
-    console.error('Aucun lineup trouvé pour l\'ID:', lineup.value);
+  if (newVal) {
+    console.log('Lineup récupéré:', newVal);
+  } else {
+    console.error('Aucun lineup trouvé pour l\'ID:', props.lineupId);
   }
 });
 </script>
+
 
 <style scoped>
 @import '@styles/Valorant/components_style/LineupView.css';

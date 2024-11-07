@@ -107,7 +107,7 @@
     </main>
     <footer class="footer-body">
       <div class="footer-content">
-        Made with ❤️ By <em>Where Is My Kuronami???</em>
+        <a href="https://github.com/Sato-Isolated" target="_blank" rel="noopener noreferrer">Made with ❤️ By <em>Mindlated</em></a>
       </div>
       <div class="combotheme">
         <label for="theme-select">Choisir un thème :</label>
@@ -131,38 +131,17 @@ const agentStore = useAgentStore();
 const selectedAgent = agentStore.selectedAgent;
 const agentImage = agentStore.selectedAgentImage ?? undefined;
 
-let selectedMap = null;
+let selectedMap: string | null = null;
+
+import { ThemeManager } from '~/utils/ThemeManager';
 // Gestion du thème
-const theme = ref('dark');
-const selectedTheme = ref('dark');
+const themeManager = new ThemeManager('pastel-dark');
+themeManager.initialize();
 
-// Fonction pour changer de thème et sauvegarder dans le localStorage
-function changeTheme() {
-  if (import.meta.client) {
-    theme.value = selectedTheme.value;
-    localStorage.setItem('theme', selectedTheme.value);
-    applyTheme(selectedTheme.value);
-  }
-}
-
-// Fonction pour appliquer le thème en changeant la classe du body
-function applyTheme(theme: string) {
-  document.body.className = theme;
-}
-
-// Charger le thème du localStorage une fois que le composant est monté côté client
-onMounted(() => {
-  if (import.meta.client) {
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme) {
-      selectedTheme.value = savedTheme;
-      theme.value = savedTheme;
-      applyTheme(savedTheme);
-    }
-  }
-
-  nextTick(changeTheme);
-});
+// Liaison des valeurs de thème pour l'interface utilisateur
+const theme = themeManager.theme;
+const selectedTheme = themeManager.selectedTheme;
+const changeTheme = () => themeManager.changeTheme();
 
 const mapImages = {
   Abyss: '/images/Valorant/Map/Loading_Abyss.webp',
@@ -192,14 +171,15 @@ const interactMapImages = {
   Sunset: '/images/Valorant/Map Interactive/Sunset.webp',
 };
 
+// Fonction pour sélectionner une carte
 function selectMap(mapName: keyof typeof mapImages) {
-
   const mapImage = mapImages[mapName];
   const interactMapImage = interactMapImages[mapName];
+
   // Enregistrer la carte et l'image dans Pinia
   agentStore.setMap(mapName, mapImage, interactMapImage);
   selectedMap = mapName;
-  
+
   try {
     router.push({
       path: `/Valorant/${selectedAgent}/${selectedMap}`
@@ -210,6 +190,7 @@ function selectMap(mapName: keyof typeof mapImages) {
   }
 }
 
+// Fonction pour retourner à la page précédente
 function goToPreviousPage() {
   try {
     router.go(-1);
@@ -218,11 +199,13 @@ function goToPreviousPage() {
   }
 }
 
+// Fonction pour revenir à la page d'accueil
 function goToHomePage() {
   agentStore.resetStore();
   router.push('/Valorant/');
 }
 </script>
+
 
 
 <style scoped>

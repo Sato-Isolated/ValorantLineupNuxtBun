@@ -24,6 +24,7 @@ const canvasContainer = ref<HTMLDivElement | null>(null);
 const isDrawingLine = ref(false);
 const mousePosition = ref({ x: 0, y: 0 });
 let backgroundImage: HTMLImageElement | null = null;
+
 interface Lineup {
   id: string;
   selectedAbility: string;
@@ -117,7 +118,7 @@ function placeLine(event: MouseEvent) {
   drawIcons();
 }
 
-function handleMouseMove(event: { clientX: number; clientY: number; }) {
+function handleMouseMove(event: MouseEvent) {
   updateMousePosition(event);
   handleHover();
   if (isDrawingLine.value) {
@@ -129,7 +130,7 @@ function handleRightClick(event: MouseEvent) {
   setCoordinatesFromClick(event);
 }
 
-function updateMousePosition(event: { clientX: number; clientY: number; }) {
+function updateMousePosition(event: MouseEvent) {
   const canvas = canvasRef.value;
   if (!canvas) return;
 
@@ -193,7 +194,7 @@ function drawTrajectory(trajectory: any[]) {
   trajectory.forEach(drawTrajectoryElement);
 }
 
-function drawTrajectoryElement(item: { shape: any; radius: number; x: number; y: number; endX: number | undefined; endY: number | undefined; }) {
+function drawTrajectoryElement(item: { shape: string; radius?: number; x: number; y: number; endX?: number; endY?: number; }) {
   const canvas = canvasRef.value;
   const context = canvas?.getContext('2d');
   if (!canvas || !context) return;
@@ -359,6 +360,7 @@ function resetState() {
   clearTrajectory();
 }
 </script>
+
 
 <style scoped>
 .canvas-container {

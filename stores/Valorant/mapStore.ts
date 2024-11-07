@@ -34,7 +34,6 @@ export const useMapStore = defineStore('mapStore', () => {
     lineupSaved.value = saved;
   }
 
-
   function getModeSuffix(): string {
     return isAttackMode.value ? 'Atk' : 'Def';
   }
@@ -45,20 +44,20 @@ export const useMapStore = defineStore('mapStore', () => {
       console.warn(`Aucun chemin trouvé pour la carte "${mapName}" en mode ${getModeSuffix()}`);
       return '';
     }
-    console.log(`getMapImagePath: mapName=${mapName}, mode=${getModeSuffix()}, path=${path}`);
     return path;
   }
 
   function updateMapInteractiveSide(mapName: string) {
     const path = getMapImagePath(mapName);
+    if (!path) {
+      console.warn(`Impossible de mettre à jour l'image interactive pour la carte "${mapName}" : chemin introuvable`);
+    }
     mapInteractiveSide.value = path;
-    console.log(`updateMapInteractiveSide: mapName=${mapName}, mapInteractiveSide=${mapInteractiveSide.value}`);
   }
 
   function toggleMode(mapName: string) {
     isAttackMode.value = !isAttackMode.value;
     updateMapInteractiveSide(mapName);
-    console.log(`toggleMode: mapName=${mapName}, isAttackMode=${isAttackMode.value}`);
   }
 
   function resetStore() {

@@ -1,23 +1,26 @@
 @import '../themes/theme-pastel-dark';
 .pastel-dark {
     background-color: $background-color;
+
     .grid-container {
         .header {
             .header-body {
                 .header-content {
                     h1 {
-                        color: rgb(236, 232, 225);
+                        color: $text-color;
                     }
                 }
-    
+                .carousel-wrapper {
+                    border: 0.5rem solid $primary-color;
+                }
                 .switch-mode {
                     button {
                         background-color: #4caf50;
+                        color: white;
                     }
                 }
             }
         }
-    
         .main-body {
             .main-content {
                 .map-container {
@@ -25,25 +28,30 @@
                         .map-image {
                             box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
                         }
+
                         .default-point {
                             background-color: red;
                         }
                     }
-    
                 }
             }
         }
-    
+
         .footer-body {
             background-color: $background-color;
+
             .footer-content {
                 color: $text-color;
+
+                /* Ajuste la position pour bien le centrer */
                 em {
                     color: $primary-color;
                 }
             }
-    
+
             .combotheme {
+
+                /* Pour aligner ce div à droite */
                 label {
                     color: $text-color;
                 }
@@ -57,16 +65,16 @@
     background-color: $background-color;
 
     .grid-container {
-    
+
         .header {
-    
+
             .header-body {
                 .header-content {
                     h1 {
                         color: rgb(236, 232, 225);
                     }
                 }
-    
+
                 .switch-mode {
                     button {
                         background-color: #4caf50;
@@ -74,7 +82,7 @@
                 }
             }
         }
-    
+
         .main-body {
             .main-content {
                 .map-container {
@@ -82,24 +90,27 @@
                         .map-image {
                             box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
                         }
+
                         .default-point {
                             background-color: red;
                         }
                     }
-    
+
                 }
             }
         }
-    
+
         .footer-body {
             background-color: $background-color;
+
             .footer-content {
                 color: $text-color;
+
                 em {
                     color: $primary-color;
                 }
             }
-    
+
             .combotheme {
                 label {
                     color: $text-color;
@@ -133,10 +144,12 @@ $breakpoints: (
     display: grid;
     grid-template-rows: 10% 87% 3%;
     min-height: 100vh;
+
     @include respond-to(LaptopXL) {
         grid-template-rows: 15% 81% 4%;
         max-height: 1080px;
     }
+
     .header {
         padding: 1rem;
         text-align: center;
@@ -155,19 +168,23 @@ $breakpoints: (
                 img {
                     width: 96px;
                     height: 96px;
+
                     @include respond-to(laptopXL) {
                         width: 64px;
                         height: 64px;
                     }
+
                     cursor: pointer;
                     border-radius: 2rem;
                 }
 
                 h1 {
                     font-size: 3rem;
+
                     @include respond-to(laptopXL) {
                         font-size: 2rem;
                     }
+
                     text-transform: uppercase;
                     cursor: pointer;
                     color: $text-color;
@@ -184,10 +201,12 @@ $breakpoints: (
                 .carousel-container {
                     width: clamp(4rem, 8vw, 5.125rem);
                     height: clamp(4rem, 8vw, 5.125rem);
+
                     @include respond-to(laptopXL) {
                         width: 64px;
                         height: 64px;
                     }
+
                     overflow: hidden;
                     position: relative;
                     transform: skew(40deg);
@@ -215,6 +234,7 @@ $breakpoints: (
                                     width: 64px;
                                     height: 64px;
                                 }
+
                                 -o-object-fit: cover;
                                 object-fit: cover;
                                 border-radius: 0.625rem;
@@ -245,12 +265,14 @@ $breakpoints: (
     .main-body {
         overflow-y: auto;
         padding: 1rem;
+
         @include respond-to(laptopXL) {
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
         }
+
         .main-content {
             display: flex;
             flex-direction: column;
@@ -335,6 +357,18 @@ $breakpoints: (
             transform: translateX(-50%);
 
             /* Ajuste la position pour bien le centrer */
+            a {
+                color: $primary-color;
+                text-decoration: none;
+                display: inline-block; // Pour assurer que l'animation affecte le lien correctement
+              
+                &:hover {
+                  color: darken($primary-color, 10%);
+                }
+              
+                // Animation pour attirer l'œil
+                animation: pulseText 1.5s ease-in-out infinite;
+              }
             em {
                 color: $primary-color;
             }
@@ -347,6 +381,7 @@ $breakpoints: (
             gap: 1rem;
             margin-right: 10px;
             margin-left: auto;
+
             /* Pour aligner ce div à droite */
             label {
                 color: $text-color;
@@ -354,3 +389,12 @@ $breakpoints: (
         }
     }
 }
+
+@keyframes pulseText {
+    0%, 100% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.05); // Agrandit légèrement le texte
+    }
+  }

@@ -1,13 +1,143 @@
-// Variables de couleurs
-$primary-color: #845ec2; // Violet pastel intense
-$primary-color-dark: #6b3fa0; // Violet plus foncé
-$text-color: #ece8e1; // Texte clair
-$secondary-text-color: #ff6f91; // Rose vif
-$border-color: rgba(255, 255, 255, 0.2); // Bordure légère
-$halo-color: rgba(132, 94, 194, 0.8); // Halo violet prononcé
-$background-color: #2f2a41; // Fond sombre pastel
-$input-background: #3b3553; // Couleur de fond des inputs
-$input-border: rgba(255, 255, 255, 0.1); // Bordure des inputs
+@import '../themes/theme-pastel-dark';
+
+.pastel-dark {
+    background-color: $background-color;
+    .popup-menu {
+        form {
+            background-color: $background-color;
+            box-shadow: 0 4px 25px rgba(0, 0, 0, 0.616);
+            color: $text-color;
+            h1 {
+                color: $primary-color;
+                border-bottom: 2px solid $border-color;
+            }
+
+            label {
+                color: $secondary-text-color;
+            }
+
+            input[type="text"],
+            input[type="number"] {
+                border: 1px solid $input-border;
+                background-color: $input-background;
+                color: $text-color;
+                &:focus {
+                    border-color: $primary-color;
+                }
+            }
+
+            .abilitie-div {
+                .options {
+                    div {
+                        img {
+                            &:hover {
+                                border-color: $primary-color;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .sides-div,
+            .difficulty-div {
+                input[type="radio"] {
+                    accent-color: $primary-color;
+                }
+            }
+
+            .group-button {
+
+                button {
+                    background-color: $primary-color;
+                    color: $text-color;
+
+                    &:hover {
+                        background-color: $primary-color-dark;
+                    }
+
+                    &:last-child {
+                        background-color: $secondary-text-color;
+
+                        &:hover {
+                            background-color: darken($secondary-text-color, 10%);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@import '../themes/theme-dark';
+
+.dark {
+    background-color: $background-color;
+    .popup-menu {
+        form {
+            background-color: $background-color;
+            box-shadow: 0 4px 25px rgba(0, 0, 0, 0.616);
+            color: $text-color;
+            h1 {
+                color: $primary-color;
+                border-bottom: 2px solid $border-color;
+            }
+
+            label {
+                color: $secondary-text-color;
+            }
+
+            input[type="text"],
+            input[type="number"] {
+                border: 1px solid $input-border;
+                background-color: $input-background;
+                color: $text-color;
+                &:focus {
+                    border-color: $primary-color;
+                }
+            }
+
+            .abilitie-div {
+                .options {
+                    div {
+                        img {
+                            &:hover {
+                                border-color: $primary-color;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .sides-div,
+            .difficulty-div {
+                input[type="radio"] {
+                    accent-color: $primary-color;
+                }
+            }
+
+            .group-button {
+
+                button {
+                    background-color: $primary-color;
+                    color: $text-color;
+
+                    &:hover {
+                        background-color: $primary-color-dark;
+                    }
+
+                    &:last-child {
+                        background-color: $secondary-text-color;
+
+                        &:hover {
+                            background-color: darken($secondary-text-color, 10%);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
 
 // Définition des breakpoints avec une carte
 $breakpoints: (
@@ -34,6 +164,7 @@ $breakpoints: (
     user-select: none;
     top: 225px;
     left: 100px;
+
     @include respond-to(laptopXL) {
         top: 150px;
         left: 50px;

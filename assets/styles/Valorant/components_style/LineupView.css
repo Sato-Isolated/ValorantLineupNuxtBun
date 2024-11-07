@@ -1,11 +1,87 @@
+.pastel-dark {
+  background-color: #2f2a41;
+}
+.pastel-dark .grid-container .header .header-content h1 {
+  color: #ece8e1;
+}
+.pastel-dark .grid-container .main-body .main-content .content h1 {
+  color: #ece8e1;
+}
+.pastel-dark .grid-container .main-body .main-content .content h2 {
+  color: #ece8e1;
+}
+.pastel-dark .grid-container .main-body .main-content .content .carousel-wrapper {
+  border: 0.5rem solid #845ec2;
+}
+.pastel-dark .grid-container .main-body .main-content .halo-sphere::before {
+  background: radial-gradient(circle, rgba(132, 94, 194, 0.8), transparent 80%);
+}
+.pastel-dark .grid-container .main-body .main-content h1 {
+  text-shadow: 0.125rem 0.125rem 0.25rem #ff6f91;
+}
+.pastel-dark .grid-container .footer-body {
+  background-color: #2f2a41;
+}
+.pastel-dark .grid-container .footer-body .footer-content {
+  color: #ece8e1;
+}
+.pastel-dark .grid-container .footer-body .footer-content em {
+  color: #845ec2;
+}
+.pastel-dark .grid-container button {
+  background-color: #845ec2;
+  color: #ece8e1;
+}
+.pastel-dark .grid-container button:hover {
+  background-color: #6b3fa0;
+}
+
+.dark {
+  background-color: rgb(16, 23, 40);
+}
+.dark .grid-container .header .header-content h1 {
+  color: #ece8e1;
+}
+.dark .grid-container .main-body .main-content .content h1 {
+  color: #ece8e1;
+}
+.dark .grid-container .main-body .main-content .content h2 {
+  color: #ece8e1;
+}
+.dark .grid-container .main-body .main-content .content .carousel-wrapper {
+  border: 0.5rem solid #1f8eff;
+}
+.dark .grid-container .main-body .main-content .halo-sphere::before {
+  background: radial-gradient(circle, rgba(0, 142, 255, 0.8), transparent 80%);
+}
+.dark .grid-container .main-body .main-content h1 {
+  text-shadow: 0.125rem 0.125rem 0.25rem #c51d1d;
+}
+.dark .grid-container .footer-body {
+  background-color: rgb(16, 23, 40);
+}
+.dark .grid-container .footer-body .footer-content {
+  color: #ece8e1;
+}
+.dark .grid-container .footer-body .footer-content em {
+  color: #1f8eff;
+}
+.dark .grid-container button {
+  background-color: #1f8eff;
+  color: #ece8e1;
+}
+.dark .grid-container button:hover {
+  background-color: #0062a3;
+}
+
 .lineup-view {
   position: absolute;
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.3);
   padding: 0.3%;
-  background-color: #2f2a41;
+  background-color: rgb(16, 23, 40);
   color: #ece8e1;
   border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(132, 94, 194, 0.8);
+  box-shadow: 0 4px 8px rgba(0, 142, 255, 0.8);
   width: clamp(200px, 30vw, 300px);
   min-height: 200px;
   max-width: 927px;
@@ -21,7 +97,7 @@
   border-radius: 6px 6px 0 0;
 }
 .lineup-view .lineup-header button {
-  background-color: #2f2a41;
+  background-color: rgb(16, 23, 40);
   color: red;
   border: none;
   border-radius: 50%;
@@ -29,7 +105,7 @@
   font-size: calc(0.8em + 0.5vw);
 }
 .lineup-view .lineup-header button:hover {
-  background-color: #ff6f91;
+  background-color: #c51d1d;
   color: white;
 }
 .lineup-view .lineup-body {
@@ -51,7 +127,7 @@
 }
 .lineup-view .resize-handle {
   position: absolute;
-  background-color: rgba(132, 94, 194, 0.8);
+  background-color: rgba(0, 142, 255, 0.8);
   opacity: 0.3;
   transition: background-color 0.2s ease;
 }
@@ -82,7 +158,7 @@
 .lineup-view .resize-handle.top-left, .lineup-view .resize-handle.top-right, .lineup-view .resize-handle.bottom-left, .lineup-view .resize-handle.bottom-right {
   width: 10px;
   height: 10px;
-  background-color: #6b3fa0;
+  background-color: #0062a3;
 }
 .lineup-view .resize-handle.top-left {
   top: -5px;
@@ -105,5 +181,5 @@
   cursor: nwse-resize;
 }
 .lineup-view .resize-handle:hover {
-  background-color: #6b3fa0;
+  background-color: #0062a3;
 }/*# sourceMappingURL=LineupView.css.map */

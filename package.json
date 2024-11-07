@@ -21,6 +21,7 @@
   "devDependencies": {
     "@nuxt/image": "^1.8.1",
     "@pinia/nuxt": "^0.6.1",
+    "nuxt-security": "^2.0.0",
     "pinia-plugin-persistedstate": "^4.1.2"
   }
 }
