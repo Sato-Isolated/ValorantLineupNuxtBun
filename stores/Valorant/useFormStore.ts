@@ -9,31 +9,24 @@ export const useFormStore = defineStore('form', {
     type: '',
     difficulty: '',
     youtubeLink: '',
-    trajectory: [] as Array<{ x: number; y: number; shape: string; radius?: number; endX?: number; endY?: number }>,
-    isDrawingEnabled: false // Nouvelle variable
+    trajectory: [] as Array<any>,
+    points: [] as Array<any>,
+    isDrawingEnabled: false,
   }),
   actions: {
-    
     setCoordinates(x: number, y: number) {
       this.x = x;
       this.y = y;
     },
-    
     addPointToTrajectory(shape: string, x: number, y: number, radius?: number, endX?: number, endY?: number) {
-      if (shape && x !== undefined && y !== undefined) { // Vérification de base
-        this.trajectory.push({ shape, x, y, radius, endX, endY });
-      } else {
-        console.warn("Paramètres invalides pour addPointToTrajectory");
-      }
+      this.trajectory.push({ shape, x, y, radius, endX, endY });
     },
-    
     drawCircleTrajectory() {
       this.addPointToTrajectory('circle', this.x, this.y, 25);
-      this.isDrawingEnabled = true; // Met sur true
+      this.isDrawingEnabled = true;
     },
-    
     resetForm() {
-      this.id = 0; // Réinitialise l'identifiant
+      this.id = 0;
       this.x = 0;
       this.y = 0;
       this.selectedAbility = '';
@@ -41,15 +34,13 @@ export const useFormStore = defineStore('form', {
       this.difficulty = '';
       this.youtubeLink = '';
       this.trajectory = [];
-      this.isDrawingEnabled = false; // Réinitialise également
+      this.isDrawingEnabled = false;
     },
-    
     setId(id: number) {
-      if (id >= 0) { // Vérifie si l'identifiant est valide
-        this.id = id;
-      } else {
-        console.warn("ID invalide");
-      }
-    }
-  }
+      this.id = id;
+    },
+    addPoint(point: any) {
+      this.points.push(point);
+    },
+  },
 });

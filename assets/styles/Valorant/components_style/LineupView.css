@@ -66,6 +66,7 @@
   max-height: 574px;
   resize: both;
   overflow: hidden;
+  width: 41rem;
 }
 .lineup-view .lineup-header {
   display: flex;

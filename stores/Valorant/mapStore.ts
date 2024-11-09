@@ -71,6 +71,7 @@ export const useMapStore = defineStore('mapStore', () => {
     toggleMode,
     updateMapInteractiveSide,
     mapInteractiveSide,
+    getMapImagePath,
     setLineupSaved,
     lineupSaved,
   };

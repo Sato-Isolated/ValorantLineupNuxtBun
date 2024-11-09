@@ -5,7 +5,7 @@
     </div>
     <div class="lineup-body" v-if="lineup">
       <p>Difficulty: {{ lineup.difficulty }}</p>
-      <iframe v-if="lineup.youtubeLink" :src="lineup.youtubeLink" width="300" height="200" frameborder="0" allowfullscreen></iframe>
+      <iframe v-if="lineup.youtubeLink" :src="lineup.youtubeLink" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen width="300" height="200"></iframe>
     </div>
   </div>
 </template>

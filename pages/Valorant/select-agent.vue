@@ -3,7 +3,7 @@
     <div class="header">
       <div class="header-body">
         <div class="header-content">
-          <img @click="goToHomePage" src="/images/Valorant/Logo.webp"  rel="preload" alt="Logo de La Brousse" />
+          <img @click="goToHomePage" src="/images/Valorant/Logo.webp"  alt="Logo de La Brousse" />
           <h1 @click="goToHomePage">La brousse</h1>
         </div>
         <div class="carousel-wrapper">
@@ -11,7 +11,7 @@
           <div class="carousel-container">
             <div class="carousel agents-carousel">
               <div class="carousel-item">
-                <img src="/images/Valorant/icons8-valorant-480.webp" rel="preload" alt="Agent Image" />
+                <img src="/images/Valorant/icons8-valorant-480.webp" alt="Agent Image" />
               </div>
             </div>
           </div>
@@ -20,7 +20,7 @@
             <div class="carousel maps-carousel">
               <div class="carousel-item">
                 <!-- Utilisation d'une image par défaut si mapImage est null -->
-                <img :src="mapImage || '/images/Valorant/icons8-valorant-480.webp'" rel="preload" alt="Map Image" />
+                <img :src="mapImage || '/images/Valorant/icons8-valorant-480.webp'" alt="Map Image" />
               </div>
             </div>
           </div>
@@ -33,37 +33,37 @@
         <!-- Ligne 1 -->
         <section class="line">
           <div class="card" @click="selectAgent('Kayo')">
-            <img src="/images/Valorant/Carte Agents/kayo_full.webp"  rel="preload" alt="Kayo" />
+            <img src="/images/Valorant/Carte Agents/kayo_full.webp"  alt="Kayo" />
             <div class="card-content">
               <h1 class="card-title">Kayo</h1>
             </div>
           </div>
           <div class="card" @click="selectAgent('Gekko')">
-            <img src="/images/Valorant/Carte Agents/gekko_full.webp"  rel="preload" alt="Gekko" />
+            <img src="/images/Valorant/Carte Agents/gekko_full.webp"  alt="Gekko" />
             <div class="card-content">
               <h1 class="card-title">Gekko</h1>
             </div>
           </div>
           <div class="card" @click="selectAgent('Sova')">
-            <img src="/images/Valorant/Carte Agents/sova_full.webp"  rel="preload" alt="Sova" />
+            <img src="/images/Valorant/Carte Agents/sova_full.webp"  alt="Sova" />
             <div class="card-content">
               <h1 class="card-title">Sova</h1>
             </div>
           </div>
           <div class="card" @click="selectAgent('Fade')">
-            <img src="/images/Valorant/Carte Agents/fade_full.webp"  rel="preload" alt="Fade" />
+            <img src="/images/Valorant/Carte Agents/fade_full.webp"  alt="Fade" />
             <div class="card-content">
               <h1 class="card-title">Fade</h1>
             </div>
           </div>
           <div class="card" @click="selectAgent('Breach')">
-            <img src="/images/Valorant/Carte Agents/breach_full.webp"  rel="preload" alt="Breach" />
+            <img src="/images/Valorant/Carte Agents/breach_full.webp"  alt="Breach" />
             <div class="card-content">
               <h1 class="card-title">Breach</h1>
             </div>
           </div>
           <div class="card" @click="selectAgent('Vyse')">
-            <img src="/images/Valorant/Carte Agents/vyse_full.webp"  rel="preload" alt="Vyse" />
+            <img src="/images/Valorant/Carte Agents/vyse_full.webp"  alt="Vyse" />
             <div class="card-content">
               <h1 class="card-title">Vyse</h1>
             </div>
@@ -73,31 +73,31 @@
         <!-- Ligne 2 -->
         <section class="line">
           <div class="card" @click="selectAgent('KillJoy')">
-            <img src="/images/Valorant/Carte Agents/killjoy_full.webp"  rel="preload" alt="KillJoy" />
+            <img src="/images/Valorant/Carte Agents/killjoy_full.webp"  alt="KillJoy" />
             <div class="card-content">
               <h1 class="card-title">KillJoy</h1>
             </div>
           </div>
           <div class="card" @click="selectAgent('Cypher')">
-            <img src="/images/Valorant/Carte Agents/cypher_full.webp"  rel="preload" alt="Cypher" />
+            <img src="/images/Valorant/Carte Agents/cypher_full.webp"  alt="Cypher" />
             <div class="card-content">
               <h1 class="card-title">Cypher</h1>
             </div>
           </div>
           <div class="card" @click="selectAgent('Sage')">
-            <img src="/images/Valorant/Carte Agents/sage_full.webp"  rel="preload" alt="Sage" />
+            <img src="/images/Valorant/Carte Agents/sage_full.webp"  alt="Sage" />
             <div class="card-content">
               <h1 class="card-title">Sage</h1>
             </div>
           </div>
           <div class="card" @click="selectAgent('Yoru')">
-            <img src="/images/Valorant/Carte Agents/yoru_full.webp"  rel="preload" alt="Yoru" />
+            <img src="/images/Valorant/Carte Agents/yoru_full.webp"  alt="Yoru" />
             <div class="card-content">
               <h1 class="card-title">Yoru</h1>
             </div>
           </div>
           <div class="card" @click="selectAgent('Deadlock')">
-            <img src="/images/Valorant/Carte Agents/deadlock_full.webp"  rel="preload" alt="Deadlock" />
+            <img src="/images/Valorant/Carte Agents/deadlock_full.webp"  alt="Deadlock" />
             <div class="card-content">
               <h1 class="card-title">Deadlock</h1>
             </div>
@@ -107,37 +107,37 @@
         <!-- Ligne 3 -->
         <section class="line">
           <div class="card" @click="selectAgent('Viper')">
-            <img src="/images/Valorant/Carte Agents/viper_full.webp"  rel="preload" alt="Viper" />
+            <img src="/images/Valorant/Carte Agents/viper_full.webp"  alt="Viper" />
             <div class="card-content">
               <h1 class="card-title">Viper</h1>
             </div>
           </div>
           <div class="card" @click="selectAgent('Omen')">
-            <img src="/images/Valorant/Carte Agents/omen_full.webp"  rel="preload" alt="Omen" />
+            <img src="/images/Valorant/Carte Agents/omen_full.webp"  alt="Omen" />
             <div class="card-content">
               <h1 class="card-title">Omen</h1>
             </div>
           </div>
           <div class="card" @click="selectAgent('Clove')">
-            <img src="/images/Valorant/Carte Agents/clove_full.webp"  rel="preload" alt="Clove" />
+            <img src="/images/Valorant/Carte Agents/clove_full.webp"  alt="Clove" />
             <div class="card-content">
               <h1 class="card-title">Clove</h1>
             </div>
           </div>
           <div class="card" @click="selectAgent('Harbor')">
-            <img src="/images/Valorant/Carte Agents/habor_full.webp"  rel="preload" alt="Harbor" />
+            <img src="/images/Valorant/Carte Agents/habor_full.webp"  alt="Harbor" />
             <div class="card-content">
               <h1 class="card-title">Harbor</h1>
             </div>
           </div>
           <div class="card" @click="selectAgent('Brimstone')">
-            <img src="/images/Valorant/Carte Agents/brimstone_full.webp"  rel="preload" alt="Brimstone" />
+            <img src="/images/Valorant/Carte Agents/brimstone_full.webp"  alt="Brimstone" />
             <div class="card-content">
               <h1 class="card-title">Brimstone</h1>
             </div>
           </div>
           <div class="card" @click="selectAgent('Astra')">
-            <img src="/images/Valorant/Carte Agents/astra_full.webp"  rel="preload" alt="Astra" />
+            <img src="/images/Valorant/Carte Agents/astra_full.webp"  alt="Astra" />
             <div class="card-content">
               <h1 class="card-title">Astra</h1>
             </div>

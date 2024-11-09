@@ -3,7 +3,7 @@
     <div class="header">
       <div class="header-body">
         <div class="header-content">
-          <img @click="goToHomePage" src="/images/Valorant/Logo.webp" rel="preload" alt="Logo de La Brousse" />
+          <img @click="goToHomePage" src="/images/Valorant/Logo.webp" alt="Logo de La Brousse" />
           <h1 @click="goToHomePage">La brousse</h1>
         </div>
         <div class="carousel-wrapper">
@@ -11,7 +11,7 @@
           <div class="carousel-container">
             <div class="carousel agents-carousel">
               <div class="carousel-item">
-                <img @click="goToSelectAgent" :src="agentImage ?? ''" rel="preload" alt="Agent Image" width="82"
+                <img @click="goToSelectAgent" :src="agentImage ?? ''" alt="Agent Image" width="82"
                   height="82" />
               </div>
             </div>
@@ -21,7 +21,7 @@
           <div class="carousel-container">
             <div class="carousel maps-carousel">
               <div class="carousel-item">
-                <img @click="goToSelectMap" :src="LoadingMapImage" width="82" height="82" rel="preload"
+                <img @click="goToSelectMap" :src="LoadingMapImage" width="82" height="82"
                   alt="Map Image" />
               </div>
             </div>
@@ -64,7 +64,7 @@
 <script lang="ts" setup>
 import { ref, onMounted } from 'vue';
 import { useRouter } from 'vue-router';
-import CanvasImage from '~/components/Valorant/CanvasImage.vue';
+import CanvasImage from '~/components/Valorant/canvasv2/CanvasImageV2.vue';
 import FloatingMenu from '~/components/Valorant/FloatingMenu.vue';
 import LineupView from '~/components/Valorant/LineupView.vue';
 import { useAgentStore } from '~/stores/Valorant/agentStore';
@@ -79,7 +79,6 @@ const selectedAgent = agentStore.selectedAgent;
 const agentImage = agentStore.selectedAgentImage;
 const selectedMap = agentStore.selectedMap;
 const LoadingMapImage = agentStore.selectedMapImage ?? '';
-
 
 const selectedLineups = ref<any[]>([]); // Tableau pour stocker les lineups sélectionnés
 
@@ -120,13 +119,10 @@ function goToSelectMap() {
   router.push({ path: `/Valorant/${selectedAgent}/select-map` });
 }
 
-const selectedLineupId = ref<number | null>(null); // Stocke l'ID du lineup sélectionné
-
 // Fonction pour ouvrir la vue du lineup sélectionné
 function openLineupView(lineupId: number) {
-  selectedLineupId.value = lineupId;
   const lineupData = lineupStore.getLineupById(lineupId);
-  if (lineupData && !selectedLineups.value.includes(lineupData)) {
+  if (lineupData && !selectedLineups.value.find(l => l.id === lineupId)) {
     selectedLineups.value.push(lineupData);
   }
 }

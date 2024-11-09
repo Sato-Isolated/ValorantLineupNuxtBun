@@ -84,11 +84,6 @@ import { ThemeManager } from '~/utils/ThemeManager';
 const themeManager = new ThemeManager('pastel-dark');
 themeManager.initialize();
 
-// Liaison des valeurs de thème pour l'interface utilisateur
-const theme = themeManager.theme;
-const selectedTheme = themeManager.selectedTheme;
-const changeTheme = () => themeManager.changeTheme();
-
 // Fonction pour obtenir le chemin de l'icône d'une capacité
 function getIconPath(ability: string): string {
   return `/images/Valorant/Abilities/${agentStore.selectedAgent}_${ability}.webp`;

@@ -62,5 +62,92 @@
         "y": 518.5
       }
     ]
+  },
+  {
+    "id": 3,
+    "x": 144,
+    "y": 415,
+    "selectedAbility": "Ability1",
+    "type": "attaque",
+    "difficulty": "facile",
+    "youtubeLink": "https://www.youtube.com/embed/mgYvaH6dMGA",
+    "trajectory": [
+      {
+        "shape": "circle",
+        "x": 144,
+        "y": 415,
+        "radius": 25
+      },
+      {
+        "shape": "line",
+        "x": 144,
+        "y": 415,
+        "endX": 503,
+        "endY": 301.5
+      },
+      {
+        "shape": "cross",
+        "x": 503,
+        "y": 301.5
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "x": 126,
+    "y": 541,
+    "selectedAbility": "Ability1",
+    "type": "attaque",
+    "difficulty": "facile",
+    "youtubeLink": "https://www.youtube.com/embed/pd_gl-KoGIY",
+    "trajectory": [
+      {
+        "shape": "circle",
+        "x": 126,
+        "y": 541,
+        "radius": 25
+      },
+      {
+        "shape": "line",
+        "x": 126,
+        "y": 541,
+        "endX": 360.96,
+        "endY": 323.41333333333336
+      },
+      {
+        "shape": "cross",
+        "x": 360.96,
+        "y": 323.41333333333336
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "x": 246,
+    "y": 749,
+    "selectedAbility": "Ultimate",
+    "type": "attaque",
+    "difficulty": "facile",
+    "youtubeLink": "https://www.youtube.com/embed/pd_gl-KoGIY",
+    "trajectory": [
+      {
+        "shape": "circle",
+        "x": 246,
+        "y": 749,
+        "radius": 25
+      },
+      {
+        "shape": "line",
+        "x": 246,
+        "y": 749,
+        "endX": 503,
+        "endY": 370.5
+      },
+      {
+        "shape": "cross",
+        "x": 503,
+        "y": 370.5
+      }
+    ]
   }
 ]
