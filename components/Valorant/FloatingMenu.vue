@@ -173,6 +173,9 @@ async function saveLineup(): Promise<void> {
 
     // Mettre à jour l'état lineupSaved
     mapStore.setLineupSaved(true);
+    console.log('State of lineupSaved:', mapStore.lineupSaved);
+    mapStore.setNeedRefresh(true);
+    console.log('State of needRefresh:', mapStore.NeedRefresh);
 
   } catch (error) {
     console.error('Erreur lors de la sauvegarde du lineup:', error);

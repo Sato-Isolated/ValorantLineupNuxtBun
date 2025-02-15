@@ -149,5 +149,411 @@
         "y": 370.5
       }
     ]
+  },
+  {
+    "id": 6,
+    "x": 468,
+    "y": 632,
+    "selectedAbility": "Ability1",
+    "type": "attaque",
+    "difficulty": "facile",
+    "youtubeLink": "https://www.youtube.com/embed/Yb_rl3_b2bc",
+    "trajectory": [
+      {
+        "shape": "circle",
+        "x": 468,
+        "y": 632,
+        "radius": 25
+      },
+      {
+        "shape": "line",
+        "x": 468,
+        "y": 632,
+        "endX": 492,
+        "endY": 359.5
+      },
+      {
+        "shape": "cross",
+        "x": 492,
+        "y": 359.5
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "x": 560,
+    "y": 891,
+    "selectedAbility": "Ability1",
+    "type": "attaque",
+    "difficulty": "facile",
+    "youtubeLink": "https://www.youtube.com/embed/Yb_rl3_b2bc",
+    "trajectory": [
+      {
+        "shape": "circle",
+        "x": 560,
+        "y": 891,
+        "radius": 25
+      },
+      {
+        "shape": "line",
+        "x": 560,
+        "y": 891,
+        "endX": 620.3733333333333,
+        "endY": 785.28
+      },
+      {
+        "shape": "cross",
+        "x": 620.3733333333333,
+        "y": 785.28
+      }
+    ]
+  },
+  {
+    "id": 8,
+    "x": 736,
+    "y": 819,
+    "selectedAbility": "Ultimate",
+    "type": "attaque",
+    "difficulty": "facile",
+    "youtubeLink": "https://www.youtube.com/embed/Yb_rl3_b2bc",
+    "trajectory": [
+      {
+        "shape": "circle",
+        "x": 736,
+        "y": 819,
+        "radius": 25
+      },
+      {
+        "shape": "line",
+        "x": 736,
+        "y": 819,
+        "endX": 785.92,
+        "endY": 636.8
+      },
+      {
+        "shape": "cross",
+        "x": 785.92,
+        "y": 636.8
+      }
+    ]
+  },
+  {
+    "id": 9,
+    "x": 874,
+    "y": 660,
+    "selectedAbility": "Grenade",
+    "type": "attaque",
+    "difficulty": "facile",
+    "youtubeLink": "https://www.youtube.com/embed/Yb_rl3_b2bc",
+    "trajectory": [
+      {
+        "shape": "circle",
+        "x": 874,
+        "y": 660,
+        "radius": 25
+      },
+      {
+        "shape": "line",
+        "x": 874,
+        "y": 660,
+        "endX": 785.92,
+        "endY": 438.82666666666665
+      },
+      {
+        "shape": "cross",
+        "x": 785.92,
+        "y": 438.82666666666665
+      }
+    ]
+  },
+  {
+    "id": 10,
+    "x": 874,
+    "y": 660,
+    "selectedAbility": "Grenade",
+    "type": "attaque",
+    "difficulty": "facile",
+    "youtubeLink": "https://www.youtube.com/embed/Yb_rl3_b2bc",
+    "trajectory": [
+      {
+        "shape": "circle",
+        "x": 874,
+        "y": 660,
+        "radius": 25
+      },
+      {
+        "shape": "line",
+        "x": 874,
+        "y": 660,
+        "endX": 785.92,
+        "endY": 438.82666666666665
+      },
+      {
+        "shape": "cross",
+        "x": 785.92,
+        "y": 438.82666666666665
+      }
+    ]
+  },
+  {
+    "id": 11,
+    "x": 581,
+    "y": 327,
+    "selectedAbility": "Ultimate",
+    "type": "attaque",
+    "difficulty": "facile",
+    "youtubeLink": "https://www.youtube.com/embed/Yb_rl3_b2bc",
+    "trajectory": [
+      {
+        "shape": "circle",
+        "x": 581,
+        "y": 327,
+        "radius": 25
+      },
+      {
+        "shape": "line",
+        "x": 581,
+        "y": 327,
+        "endX": 478.72,
+        "endY": 532.6933333333334
+      },
+      {
+        "shape": "cross",
+        "x": 478.72,
+        "y": 532.6933333333334
+      }
+    ]
+  },
+  {
+    "id": 12,
+    "x": 533,
+    "y": 104,
+    "selectedAbility": "Ability2",
+    "type": "attaque",
+    "difficulty": "facile",
+    "youtubeLink": "https://www.youtube.com/embed/Yb_rl3_b2bc",
+    "trajectory": [
+      {
+        "shape": "circle",
+        "x": 533,
+        "y": 104,
+        "radius": 25
+      },
+      {
+        "shape": "line",
+        "x": 533,
+        "y": 104,
+        "endX": 478.72,
+        "endY": 435.41333333333336
+      },
+      {
+        "shape": "cross",
+        "x": 478.72,
+        "y": 435.41333333333336
+      }
+    ]
+  },
+  {
+    "id": 13,
+    "x": 738,
+    "y": 172,
+    "selectedAbility": "Ability2",
+    "type": "attaque",
+    "difficulty": "facile",
+    "youtubeLink": "https://www.youtube.com/embed/Yb_rl3_b2bc",
+    "trajectory": [
+      {
+        "shape": "circle",
+        "x": 738,
+        "y": 172,
+        "radius": 25
+      },
+      {
+        "shape": "line",
+        "x": 738,
+        "y": 172,
+        "endX": 773.9733333333334,
+        "endY": 503.68
+      },
+      {
+        "shape": "cross",
+        "x": 773.9733333333334,
+        "y": 503.68
+      }
+    ]
+  },
+  {
+    "id": 14,
+    "x": 738,
+    "y": 172,
+    "selectedAbility": "Ability2",
+    "type": "attaque",
+    "difficulty": "facile",
+    "youtubeLink": "https://www.youtube.com/embed/Yb_rl3_b2bc",
+    "trajectory": [
+      {
+        "shape": "circle",
+        "x": 738,
+        "y": 172,
+        "radius": 25
+      },
+      {
+        "shape": "line",
+        "x": 738,
+        "y": 172,
+        "endX": 773.9733333333334,
+        "endY": 503.68
+      },
+      {
+        "shape": "cross",
+        "x": 773.9733333333334,
+        "y": 503.68
+      }
+    ]
+  },
+  {
+    "id": 15,
+    "x": 738,
+    "y": 172,
+    "selectedAbility": "Ability2",
+    "type": "attaque",
+    "difficulty": "facile",
+    "youtubeLink": "https://www.youtube.com/embed/Yb_rl3_b2bc",
+    "trajectory": [
+      {
+        "shape": "circle",
+        "x": 738,
+        "y": 172,
+        "radius": 25
+      },
+      {
+        "shape": "line",
+        "x": 738,
+        "y": 172,
+        "endX": 773.9733333333334,
+        "endY": 503.68
+      },
+      {
+        "shape": "cross",
+        "x": 773.9733333333334,
+        "y": 503.68
+      }
+    ]
+  },
+  {
+    "id": 16,
+    "x": 738,
+    "y": 172,
+    "selectedAbility": "Ability2",
+    "type": "attaque",
+    "difficulty": "facile",
+    "youtubeLink": "https://www.youtube.com/embed/Yb_rl3_b2bc",
+    "trajectory": [
+      {
+        "shape": "circle",
+        "x": 738,
+        "y": 172,
+        "radius": 25
+      },
+      {
+        "shape": "line",
+        "x": 738,
+        "y": 172,
+        "endX": 773.9733333333334,
+        "endY": 503.68
+      },
+      {
+        "shape": "cross",
+        "x": 773.9733333333334,
+        "y": 503.68
+      }
+    ]
+  },
+  {
+    "id": 17,
+    "x": 345,
+    "y": 304,
+    "selectedAbility": "Ability2",
+    "type": "attaque",
+    "difficulty": "facile",
+    "youtubeLink": "https://www.youtube.com/embed/Yb_rl3_b2bc",
+    "trajectory": [
+      {
+        "shape": "circle",
+        "x": 345,
+        "y": 304,
+        "radius": 25
+      },
+      {
+        "shape": "line",
+        "x": 345,
+        "y": 304,
+        "endX": 794.4533333333334,
+        "endY": 481.49333333333334
+      },
+      {
+        "shape": "cross",
+        "x": 794.4533333333334,
+        "y": 481.49333333333334
+      }
+    ]
+  },
+  {
+    "id": 18,
+    "x": 345,
+    "y": 304,
+    "selectedAbility": "Ability2",
+    "type": "attaque",
+    "difficulty": "facile",
+    "youtubeLink": "https://www.youtube.com/embed/Yb_rl3_b2bc",
+    "trajectory": [
+      {
+        "shape": "circle",
+        "x": 345,
+        "y": 304,
+        "radius": 25
+      },
+      {
+        "shape": "line",
+        "x": 345,
+        "y": 304,
+        "endX": 794.4533333333334,
+        "endY": 481.49333333333334
+      },
+      {
+        "shape": "cross",
+        "x": 794.4533333333334,
+        "y": 481.49333333333334
+      }
+    ]
+  },
+  {
+    "id": 19,
+    "x": 345,
+    "y": 304,
+    "selectedAbility": "Ability2",
+    "type": "attaque",
+    "difficulty": "facile",
+    "youtubeLink": "https://www.youtube.com/embed/Yb_rl3_b2bc",
+    "trajectory": [
+      {
+        "shape": "circle",
+        "x": 345,
+        "y": 304,
+        "radius": 25
+      },
+      {
+        "shape": "line",
+        "x": 345,
+        "y": 304,
+        "endX": 794.4533333333334,
+        "endY": 481.49333333333334
+      },
+      {
+        "shape": "cross",
+        "x": 794.4533333333334,
+        "y": 481.49333333333334
+      }
+    ]
   }
 ]

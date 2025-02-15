@@ -75,6 +75,15 @@ watch(() => mapStore.lineupSaved, (newVal) => {
   }
 });
 
+watch(() => mapStore.NeedRefresh, (newVal) => {
+  console.log('NeedRefresh:', newVal);
+  if (newVal) {
+    loadLineups();
+    redrawBackgroundImage();
+    mapStore.setNeedRefresh(false);
+  }
+});
+
 watch(() => formStore.trajectory, () => {
   drawTrajectory(formStore.trajectory);
 }, { deep: true });

@@ -4,6 +4,7 @@ import { ref } from 'vue';
 export const useMapStore = defineStore('mapStore', () => {
   const lineupSaved = ref(false); // État pour indiquer quand un lineup est enregistré
 
+  const NeedRefresh = ref<boolean>(false);
   const isAttackMode = ref<boolean>(true);
   const mapInteractiveSide = ref<string>('');
 
@@ -32,6 +33,10 @@ export const useMapStore = defineStore('mapStore', () => {
 
   function setLineupSaved(saved: boolean) {
     lineupSaved.value = saved;
+  }
+
+  function setNeedRefresh(refresh: boolean) {
+    NeedRefresh.value = refresh;
   }
 
   function getModeSuffix(): string {
@@ -73,6 +78,8 @@ export const useMapStore = defineStore('mapStore', () => {
     mapInteractiveSide,
     getMapImagePath,
     setLineupSaved,
+    NeedRefresh,
+    setNeedRefresh,
     lineupSaved,
   };
 });
