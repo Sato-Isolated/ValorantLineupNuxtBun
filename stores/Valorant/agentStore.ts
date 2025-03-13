@@ -1,31 +1,36 @@
+// Store Pinia pour la gestion de l'agent sélectionné
 import { defineStore } from 'pinia';
 
+interface AgentState {
+  selectedAgent: string;
+}
+
 export const useAgentStore = defineStore('agent', {
-  state: () => ({
-    selectedAgent: null as string | null,
-    selectedAgentImage: null as string | null,
-    selectedMap: null as string | null,
-    selectedMapImage: null as string | null,
-    selectedInteractMap: null as string | null,
+  // État initial
+  state: (): AgentState => ({
+    selectedAgent: ''
   }),
-  actions: {
-    setAgent(agentName: string, agentImage:string) {
-      this.selectedAgent = agentName;
-      this.selectedAgentImage = agentImage;
-    },
-    setMap(mapName: string, mapImage: string, interactMap: string) {
-      this.selectedMap = mapName;
-      this.selectedMapImage = mapImage;
-      this.selectedInteractMap = interactMap;
-    },
-    // Action pour réinitialiser le store
-    resetStore() {
-      this.selectedAgent = null;
-      this.selectedAgentImage = null;
-      this.selectedMap = null;
-      this.selectedMapImage = null;
-      this.selectedInteractMap = null;
-    },
+
+  // Getters
+  getters: {
+    // Vérifie si un agent est sélectionné
+    hasSelectedAgent: (state) => state.selectedAgent !== '',
+    // Retourne l'agent sélectionné
+    getSelectedAgent: (state) => state.selectedAgent
   },
-  persist: true,
+
+  // Actions
+  actions: {
+    // Définit l'agent sélectionné
+    setAgent(agentName: string) {
+      this.selectedAgent = agentName;
+    },
+    // Réinitialise l'agent sélectionné
+    clearAgent() {
+      this.selectedAgent = '';
+    }
+  },
+
+  // Configuration de la persistance
+  persist: true
 });

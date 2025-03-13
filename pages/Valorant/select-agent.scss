@@ -1,0 +1,870 @@
+// Variables globales avec des valeurs optimisées pour différents écrans PC
+:root {
+  // Taille des cartes et espacements - ajustés pour une meilleure disposition
+  --card-width: 155px; // Largeur de base réduite
+  --card-aspect-ratio: 3/4; // Ratio d'aspect pour les cartes
+  --card-gap: 1.2rem; // Espacement standard entre les cartes
+  --card-radius: 0.6rem;
+  --header-height: 60px;
+  
+  // Animations et effets - optimisés pour les performances
+  --card-transition: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  --card-shadow: 0 4px 15px rgba(var(--color-primary-rgb, 255, 70, 85), 0.12);
+  --bg-blur: 8px;
+  --card-opacity: 0.15;
+  --card-hover-opacity: 0.25;
+  
+  // Couleurs et bordures
+  --border-primary: rgba(255, 255, 255, 0.1);
+  --component-bg: rgba(15, 25, 35, 0.8);
+  --overlay-light: rgba(255, 255, 255, 0.1);
+}
+
+// Layout principal optimisé - espacement vertical minimal
+.grid-container {
+  min-height: 100vh;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  background-color: var(--background-color, #0f1923);
+  color: var(--text-color, #fff);
+  gap: 0.5rem; // Espace vertical minimal
+  width: 100%;
+  max-width: 100vw;
+  overflow-x: hidden; // Empêche le scrolling horizontal
+}
+
+// Header optimisé - conserve l'espace vertical
+.valorant-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--component-bg);
+  backdrop-filter: blur(var(--bg-blur));
+  -webkit-backdrop-filter: blur(var(--bg-blur));
+  border-bottom: 1px solid var(--border-primary);
+  padding: 0.75rem 0;
+
+  .container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  .header__content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+    
+    @media (max-width: 768px) {
+      flex-direction: column;
+      padding: 0 1rem;
+    }
+  }
+
+  .header__logo {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    cursor: pointer;
+    transition: transform var(--card-transition);
+
+    &:hover {
+      transform: scale(1.02);
+    }
+
+    img {
+      width: 48px; // Réduction de la taille du logo
+      height: 48px; // Maintien du ratio carré
+      object-fit: contain;
+      filter: drop-shadow(0 0 10px rgba(var(--color-primary-rgb), 0.3));
+    }
+
+    h1 {
+      font-size: clamp(1.25rem, 3vw, 1.5rem); // Réduction de la taille du texte
+      color: var(--text-color, #fff);
+      text-transform: uppercase;
+      font-weight: 600;
+      letter-spacing: 1px;
+    }
+  }
+
+  .carousel-wrapper {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+
+    .carousel-container {
+      width: 60px;
+      height: 60px;
+      overflow: hidden;
+      border: 2px solid var(--border-primary);
+      border-radius: var(--card-radius);
+      background: var(--overlay-light);
+      transition: all var(--card-transition);
+
+      &:hover {
+        transform: translateY(-2px);
+        border-color: rgba(var(--color-primary-rgb), 0.6);
+        box-shadow: var(--card-shadow);
+      }
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform var(--card-transition);
+
+        &:hover {
+          transform: scale(1.1);
+        }
+      }
+    }
+  }
+}
+
+// Contenu principal avec une meilleure gestion de l'espace
+.main-body {
+  padding: 1rem 0; // Augmentation du padding vertical
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  overflow-x: hidden;
+
+  .main-content {
+    width: 100%;
+    // Largeurs maximales ajustées pour chaque taille d'écran
+    max-width: 1800px;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem; // Augmentation de l'espacement entre les sections
+    align-items: center;
+    padding: 0 2rem; // Augmentation du padding horizontal
+
+    // Adaptation aux différents écrans PC avec précision
+    @media (min-width: 2560px) { // 4K et écrans ultra-large
+      max-width: 2400px;
+      padding: 0 3rem;
+      --card-width: 180px;
+      --card-gap: 2rem;
+      gap: 2.5rem;
+    }
+
+    @media (min-width: 1920px) and (max-width: 2559px) { // Écrans 2K / WQHD
+      max-width: 1800px;
+      --card-width: 140px; // Réduit pour écrans 2K
+      --card-gap: 1.8rem;
+      gap: 2.2rem;
+    }
+
+    @media (min-width: 1600px) and (max-width: 1919px) { // Écrans larges
+      max-width: 1500px;
+      --card-width: 150px;
+      --card-gap: 1.4rem;
+      gap: 2rem;
+      padding: 0 1.8rem;
+    }
+
+    @media (min-width: 1366px) and (max-width: 1599px) { // Écrans standards
+      max-width: 1300px;
+      --card-width: 140px;
+      --card-gap: 1.2rem;
+      gap: 1.8rem;
+      padding: 0 1.6rem;
+    }
+
+    @media (min-width: 1200px) and (max-width: 1365px) { // Petits écrans PC
+      max-width: 1100px;
+      --card-width: 130px;
+      --card-gap: 1rem;
+      gap: 1.6rem;
+      padding: 0 1.4rem;
+    }
+
+    @media (min-width: 992px) and (max-width: 1199px) { // Très petits écrans PC
+      max-width: 900px;
+      --card-width: 120px;
+      --card-gap: 0.8rem;
+      gap: 1.4rem;
+      padding: 0 1.2rem;
+    }
+
+    // Adaptation tablettes et mobiles
+    @media (max-width: 991px) {
+      max-width: 100%;
+      padding: 0 1rem;
+      --card-width: 110px;
+      --card-gap: 0.7rem;
+      gap: 1.2rem;
+    }
+
+    @media (max-width: 768px) {
+      padding: 0 0.8rem;
+      --card-width: 100px;
+      --card-gap: 0.6rem;
+      gap: 1rem;
+    }
+
+    @media (max-width: 576px) {
+      padding: 0 0.5rem;
+      --card-width: 90px;
+      --card-gap: 0.5rem;
+      gap: 0.8rem;
+    }
+
+    @media (max-width: 480px) {
+      --card-width: 85px;
+      --card-gap: 0.4rem;
+      gap: 0.6rem;
+      padding: 0 0.4rem;
+    }
+
+    // Titre de catégorie pour chaque ligne - ajusté pour lisibilité
+    .line {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-bottom: 1.5rem; // Augmentation de la marge entre les sections
+
+      // Titre de la catégorie avec adaptation PC
+      &::before {
+        content: attr(data-category);
+        font-size: 1.2rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        position: relative;
+        color: var(--text-color);
+        padding-bottom: 0.25rem;
+        border-bottom: 2px solid rgba(var(--color-primary-rgb), 0.4);
+        margin-bottom: 0.5rem;
+        align-self: flex-start;
+
+        // Adaptation grands écrans - plus grand pour les grands écrans
+        @media (min-width: 1600px) {
+          font-size: 1.4rem;
+          letter-spacing: 1.2px;
+          margin-bottom: 0.75rem;
+        }
+        
+        // Adaptation écrans moyens et petits
+        @media (max-width: 991px) {
+          font-size: 1.1rem;
+          letter-spacing: 0.8px;
+          margin-bottom: 0.4rem;
+          padding-bottom: 0.2rem;
+        }
+        
+        @media (max-width: 576px) {
+          font-size: 1rem;
+          letter-spacing: 0.6px;
+          margin-bottom: 0.3rem;
+        }
+        
+        @media (max-width: 480px) {
+          font-size: 0.9rem;
+          letter-spacing: 0.4px;
+          margin-bottom: 0.25rem;
+        }
+      }
+
+      // Conteneur des cartes avec adaptation optimisée
+      .cards-container {
+        display: grid;
+        // Utilise auto-fill pour adapter naturellement le nombre de cartes par ligne
+        grid-template-columns: repeat(auto-fill, minmax(var(--card-width), 1fr));
+        gap: var(--card-gap);
+        width: 100%;
+        padding: 0.5rem 0; // Ajout d'un peu d'espace vertical autour des cartes
+        
+        // Force exactement 7 cartes par ligne pour les très grands écrans
+        @media (min-width: 2560px) {
+          grid-template-columns: repeat(7, minmax(0, 1fr)); // 7 cartes pour les écrans 4K+
+        }
+        
+        // Force exactement 6 cartes par ligne pour les écrans 2K
+        @media (min-width: 1920px) and (max-width: 2559px) {
+          grid-template-columns: repeat(6, minmax(0, 1fr)); // 6 cartes pour 2K
+        }
+        
+        // Force exactement 6 cartes par ligne pour les grands écrans (plutôt que auto-fit)
+        @media (min-width: 1600px) and (max-width: 1919px) {
+          grid-template-columns: repeat(6, minmax(0, 1fr));
+        }
+        
+        // Force exactement 5 cartes par ligne pour les écrans moyens
+        @media (min-width: 1366px) and (max-width: 1599px) {
+          grid-template-columns: repeat(5, minmax(0, 1fr));
+        }
+        
+        // Force exactement 5 cartes par ligne pour les écrans moyens
+        @media (min-width: 1200px) and (max-width: 1365px) {
+          grid-template-columns: repeat(5, minmax(0, 1fr));
+        }
+        
+        // 4 cartes par ligne pour les petits écrans PC
+        @media (min-width: 992px) and (max-width: 1199px) {
+          grid-template-columns: repeat(4, minmax(0, 1fr));
+        }
+        
+        // 4 cartes par ligne pour les tablettes
+        @media (min-width: 768px) and (max-width: 991px) {
+          grid-template-columns: repeat(4, minmax(0, 1fr));
+        }
+        
+        // 3 cartes par ligne pour les petites tablettes et mobiles
+        @media (min-width: 576px) and (max-width: 767px) {
+          grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+        
+        // 2 cartes par ligne même en très petit écran
+        @media (max-width: 575px) {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        // Cartes adaptées aux différents écrans PC
+        .card {
+          width: 100%; // Prend toute la largeur de sa cellule
+          height: 0; // Hauteur initiale à 0
+          padding-bottom: 133.33%; // Pour maintenir un ratio 3:4 (75% * 4/3)
+          position: relative;
+          border-radius: var(--card-radius);
+          overflow: hidden;
+          cursor: pointer;
+          transition: all 0.25s ease;
+          box-shadow: 0 3px 8px rgba(0, 0, 0, 0.25);
+          background: var(--overlay-light);
+          border: 1px solid var(--border-primary);
+          margin: 0.2rem; // Ajout d'une petite marge autour de chaque carte
+          
+          // Assure un placement précis dans la grille
+          display: block; // Changé pour bloquer au lieu de flex pour le ratio d'aspect
+          margin: 0 auto;
+          max-width: 100%; // Empêche l'écrasement sur les écrans étroits
+
+          // Fond avec dégradé adapté pour plus de profondeur
+          &::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(
+              135deg, 
+              rgba(var(--color-primary-rgb), 0.25) 0%,
+              rgba(0, 0, 0, 0.5) 100%
+            );
+            z-index: 1;
+            opacity: 0.6;
+            transition: opacity 0.25s ease;
+          }
+
+          // Bordure lumineuse améliorée
+          &::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border: 1px solid rgba(var(--color-primary-rgb), 0.3);
+            border-radius: var(--card-radius);
+            box-shadow: 0 0 8px rgba(var(--color-primary-rgb), 0.15);
+            z-index: 2;
+            opacity: 0;
+            transition: opacity 0.25s ease, box-shadow 0.25s ease;
+          }
+
+          // Animation au survol adaptée aux différentes tailles d'écran
+          &:hover {
+            transform: translateY(-5px) scale(1.03);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+            z-index: 5; // Assure que la carte survolée est au-dessus des autres
+
+            &::before {
+              opacity: 0.8;
+            }
+
+            &::after {
+              opacity: 1;
+              box-shadow: 0 0 15px rgba(var(--color-primary-rgb), 0.3);
+            }
+
+            .card-image {
+              transform: scale(1.05);
+              filter: brightness(1.1);
+            }
+
+            .card-content {
+              transform: translateY(-5px);
+              background: rgba(var(--color-primary-rgb), 0.2);
+              backdrop-filter: blur(3px);
+
+              .card-title, .card-role {
+                transform: translateY(0);
+                opacity: 1;
+              }
+            }
+          }
+
+          // Optimisation des animations pour les appareils tactiles
+          @media (hover: none) {
+            &:active {
+              transform: translateY(-2px) scale(1.01);
+              
+              .card-content {
+                transform: translateY(-2px);
+                background: rgba(var(--color-primary-rgb), 0.15);
+              }
+            }
+          }
+
+          // Image de la carte optimisée pour le chargement et la performance
+          .card-image {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            object-fit: cover; // Conserve les proportions
+            object-position: center 15%; // Centrage vertical ajusté pour voir le visage
+            transition: transform 0.3s ease, filter 0.3s ease;
+            z-index: 0;
+            will-change: transform; // Optimise les animations
+            
+            // Optimisations pour réduire la taille perçue et améliorer les performances
+            image-rendering: auto; // Rendu optimal des images
+            filter: contrast(1.05) saturate(1.05); // Légère amélioration du contraste et de la saturation
+            backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
+            
+            // Dimensions explicites pour assurer le bon affichage de l'image
+            top: 0;
+            left: 0;
+            
+            // Optimisation spécifique pour les écrans haute densité
+            @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+              image-rendering: crisp-edges; // Améliore la netteté sur écrans haute densité
+            }
+            
+            // Optimisation pour les écrans mobiles (réduction de la qualité pour économiser la bande passante)
+            @media (max-width: 768px) {
+              image-rendering: optimizeSpeed;
+            }
+          }
+
+          // Contenu au bas de la carte mieux adapté aux différentes tailles
+          .card-content {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 0.75rem 0.5rem;
+            background: rgba(0, 0, 0, 0.75);
+            backdrop-filter: blur(3px);
+            -webkit-backdrop-filter: blur(3px);
+            z-index: 3;
+            transform: translateY(0);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            gap: 0.2rem;
+
+            // Ajustement du padding spécifique pour écrans 2K
+            @media (min-width: 1920px) and (max-width: 2559px) {
+              padding: 0.65rem 0.4rem;
+              gap: 0.15rem;
+            }
+
+            // Ajustements responsifs du padding et de la taille de texte
+            @media (min-width: 1600px) and (max-width: 1919px) {
+              padding: 0.7rem 0.45rem;
+              gap: 0.18rem;
+            }
+
+            @media (min-width: 1366px) and (max-width: 1599px) {
+              padding: 0.65rem 0.4rem;
+              gap: 0.16rem;
+            }
+
+            @media (min-width: 1200px) and (max-width: 1365px) {
+              padding: 0.6rem 0.35rem;
+              gap: 0.14rem;
+            }
+
+            @media (min-width: 992px) and (max-width: 1199px) {
+              padding: 0.55rem 0.3rem;
+              gap: 0.12rem;
+            }
+
+            @media (max-width: 991px) {
+              padding: 0.5rem 0.25rem;
+              gap: 0.1rem;
+            }
+
+            // Titre de la carte adapté aux différentes tailles d'écran
+            .card-title {
+              color: var(--text-color, #fff);
+              font-size: 0.9rem;
+              font-weight: 600;
+              text-align: center;
+              margin: 0;
+              text-transform: uppercase;
+              letter-spacing: 0.3px;
+              transform: translateY(0);
+              transition: all 0.25s ease 0.05s;
+              text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+
+              // Ajustement spécifique pour écrans 2K
+              @media (min-width: 1920px) and (max-width: 2559px) {
+                font-size: 0.85rem;
+                letter-spacing: 0.25px;
+              }
+
+              // Ajustements de taille pour chaque breakpoint
+              @media (min-width: 1600px) and (max-width: 1919px) {
+                font-size: 0.85rem;
+                letter-spacing: 0.3px;
+              }
+
+              @media (min-width: 1366px) and (max-width: 1599px) {
+                font-size: 0.8rem;
+                letter-spacing: 0.25px;
+              }
+
+              @media (min-width: 1200px) and (max-width: 1365px) {
+                font-size: 0.75rem;
+                letter-spacing: 0.2px;
+              }
+
+              @media (min-width: 992px) and (max-width: 1199px) {
+                font-size: 0.7rem;
+                letter-spacing: 0.15px;
+              }
+
+              // Adaptation aux différentes tailles d'écran PC
+              @media (min-width: 1601px) {
+                font-size: 0.95rem;
+                letter-spacing: 0.4px;
+              }
+              
+              @media (max-width: 1366px) {
+                font-size: 0.85rem;
+                letter-spacing: 0.25px;
+              }
+              
+              @media (max-width: 991px) {
+                font-size: 0.8rem;
+                letter-spacing: 0.2px;
+              }
+
+              @media (max-width: 768px) {
+                font-size: 0.75rem;
+                letter-spacing: 0.15px;
+              }
+
+              @media (max-width: 576px) {
+                font-size: 0.7rem;
+                letter-spacing: 0.1px;
+              }
+              
+              @media (max-width: 480px) {
+                font-size: 0.65rem;
+                letter-spacing: 0;
+              }
+            }
+
+            // Rôle de l'agent avec meilleure visibilité
+            .card-role {
+              font-size: 0.7rem;
+              text-align: center;
+              color: rgba(var(--color-primary-rgb), 1);
+              margin: 0;
+              text-transform: uppercase;
+              letter-spacing: 0.2px;
+              opacity: 1;
+              transform: translateY(0);
+              transition: all 0.25s ease 0.1s;
+              text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+
+              // Ajustement spécifique pour écrans 2K
+              @media (min-width: 1920px) and (max-width: 2559px) {
+                font-size: 0.65rem;
+                letter-spacing: 0.15px;
+              }
+
+              // Ajustements de taille pour chaque breakpoint
+              @media (min-width: 1600px) and (max-width: 1919px) {
+                font-size: 0.7rem;
+                letter-spacing: 0.2px;
+              }
+
+              @media (min-width: 1366px) and (max-width: 1599px) {
+                font-size: 0.65rem;
+                letter-spacing: 0.15px;
+              }
+
+              @media (min-width: 1200px) and (max-width: 1365px) {
+                font-size: 0.6rem;
+                letter-spacing: 0.1px;
+              }
+
+              @media (min-width: 992px) and (max-width: 1199px) {
+                font-size: 0.55rem;
+                letter-spacing: 0.05px;
+              }
+
+              // Adaptation aux différentes tailles d'écran PC
+              @media (min-width: 1601px) {
+                font-size: 0.75rem;
+                letter-spacing: 0.25px;
+              }
+              
+              @media (max-width: 1366px) {
+                font-size: 0.65rem;
+                letter-spacing: 0.15px;
+              }
+
+              @media (max-width: 991px) {
+                font-size: 0.6rem;
+                letter-spacing: 0.1px;
+              }
+
+              @media (max-width: 576px) {
+                font-size: 0.55rem;
+                letter-spacing: 0.05px;
+              }
+              
+              @media (max-width: 480px) {
+                font-size: 0.5rem;
+                letter-spacing: 0;
+              }
+            }
+            
+            // Icônes des compétences masquées pour économiser l'espace
+            .card-abilities {
+              display: none; // Masqué sur tous les écrans pour simplifier
+              
+              // Affichage conditionnel uniquement sur très grands écrans
+              @media (min-width: 1800px) {
+                // display: flex; // Peut être activé si désiré
+                justify-content: center;
+                gap: 0.4rem;
+                margin-top: 0.3rem;
+                
+                .ability-icon {
+                  width: 18px;
+                  height: 18px;
+                  border-radius: 50%;
+                  background: rgba(var(--color-primary-rgb), 0.2);
+                  border: 1px solid rgba(var(--color-primary-rgb), 0.5);
+                  transition: all 0.25s ease;
+                  
+                  &:hover {
+                    transform: scale(1.2);
+                    background: rgba(var(--color-primary-rgb), 0.4);
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// Footer optimisé
+.footer-body {
+  background: var(--component-bg);
+  backdrop-filter: blur(var(--bg-blur));
+  -webkit-backdrop-filter: blur(var(--bg-blur));
+  border-top: 1px solid var(--border-primary);
+  padding: 1.5rem 0;
+
+  @media (max-width: 480px) {
+    padding: 1.2rem 0;
+    
+    .container {
+      padding: 0 1rem;
+    }
+    
+    .footer__content {
+      gap: 1.5rem;
+    }
+    
+    .footer__info .footer-link {
+      font-size: 1rem;
+    }
+    
+    .theme-selector select {
+      min-width: 160px;
+      padding: 0.6rem 1.2rem;
+    }
+  }
+  
+  @media (max-width: 320px) {
+    padding: 1rem 0;
+    
+    .container {
+      padding: 0 0.8rem;
+    }
+    
+    .footer__info .footer-link {
+      font-size: 0.9rem;
+    }
+    
+    .theme-selector select {
+      min-width: 140px;
+      padding: 0.5rem 1rem;
+    }
+  }
+
+  .container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  .footer__content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+
+    @media (max-width: 768px) {
+      flex-direction: column;
+      text-align: center;
+      padding: 0 1rem;
+    }
+  }
+
+  .footer__info .footer-link {
+    color: var(--text-color-secondary, #768079);
+    text-decoration: none;
+    transition: color var(--card-transition);
+    font-size: 1.1rem;
+
+    &:hover {
+      color: var(--color-primary, #ff4655);
+    }
+
+    .heart {
+      color: var(--color-primary, #ff4655);
+      display: inline-block;
+      animation: heartbeat 1.5s ease infinite;
+    }
+
+    em {
+      font-style: normal;
+      font-weight: 600;
+    }
+  }
+
+  .theme-selector {
+    select {
+      padding: 0.75rem 1.5rem;
+      background: rgba(var(--color-secondary-rgb), var(--card-opacity));
+      border: 2px solid var(--border-primary);
+      border-radius: var(--card-radius);
+      color: var(--text-color);
+      font-size: 1rem;
+      cursor: pointer;
+      transition: all var(--card-transition);
+      min-width: 180px;
+      backdrop-filter: blur(var(--bg-blur));
+      -webkit-backdrop-filter: blur(var(--bg-blur));
+    }
+
+    &:hover {
+      background: rgba(var(--color-secondary-rgb), var(--card-hover-opacity));
+      border-color: var(--color-primary);
+      box-shadow: 0 0 0 3px rgba(var(--color-primary-rgb), 0.2);
+    }
+
+    option {
+      background: var(--color-secondary);
+      padding: 0.5rem;
+    }
+  }
+}
+
+// Animation du coeur
+@keyframes heartbeat {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+  100% { transform: scale(1); }
+}
+
+// Animation de pulsation pour les éléments
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 rgba(var(--color-primary-rgb), 0.7); }
+  70% { box-shadow: 0 0 0 10px rgba(var(--color-primary-rgb), 0); }
+  100% { box-shadow: 0 0 0 0 rgba(var(--color-primary-rgb), 0); }
+}
+
+// Thèmes de base
+.dark {
+  --background-color: #0f1923;
+  --text-color: #ffffff;
+  --text-color-secondary: #768079;
+  --component-bg: rgba(15, 25, 35, 0.8);
+  --card-opacity: 0.15;
+  --card-hover-opacity: 0.25;
+}
+
+.pastel-dark {
+  --background-color: #1a1f25;
+  --text-color: #e6e6fa;
+  --text-color-secondary: #b8c0c9;
+  --component-bg: rgba(26, 31, 37, 0.8);
+  --card-opacity: 0.15;
+  --card-hover-opacity: 0.25;
+}
+
+// Thèmes d'agents avec améliorations
+.theme-jett {
+  --color-primary-rgb: 122, 183, 231;
+  --color-primary: rgb(var(--color-primary-rgb));
+  --color-secondary-rgb: 27, 43, 59;
+  --color-secondary: rgb(var(--color-secondary-rgb));
+  --bg-opacity: 0.95;
+  
+  .valorant-header,
+  .footer-body {
+    background: rgba(var(--color-secondary-rgb), var(--bg-opacity));
+  }
+}
+
+.theme-phoenix {
+  --color-primary-rgb: 255, 70, 85;
+  --color-primary: rgb(var(--color-primary-rgb));
+  --color-secondary-rgb: 37, 20, 25;
+  --color-secondary: rgb(var(--color-secondary-rgb));
+  --bg-opacity: 0.95;
+  
+  .valorant-header,
+  .footer-body {
+    background: rgba(var(--color-secondary-rgb), var(--bg-opacity));
+  }
+}
+
+.theme-viper {
+  --color-primary-rgb: 0, 255, 135;
+  --color-primary: rgb(var(--color-primary-rgb));
+  --color-secondary-rgb: 15, 31, 26;
+  --color-secondary: rgb(var(--color-secondary-rgb));
+  --bg-opacity: 0.95;
+  
+  .valorant-header,
+  .footer-body {
+    background: rgba(var(--color-secondary-rgb), var(--bg-opacity));
+  }
+}
+
+.theme-sage {
+  --color-primary-rgb: 103, 234, 202;
+  --color-primary: rgb(var(--color-primary-rgb));
+  --color-secondary-rgb: 27, 50, 47;
+  --color-secondary: rgb(var(--color-secondary-rgb));
+  --bg-opacity: 0.95;
+  
+  .valorant-header,
+  .footer-body {
+    background: rgba(var(--color-secondary-rgb), var(--bg-opacity));
+  }
+}

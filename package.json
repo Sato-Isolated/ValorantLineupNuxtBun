@@ -10,8 +10,18 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
-    "gsap": "^3.12.5",
-    "nuxt": "^3.14.159",
+    "@fortawesome/fontawesome-free": "^6.7.2",
+    "@fortawesome/fontawesome-svg-core": "^6.7.2",
+    "@fortawesome/free-solid-svg-icons": "^6.7.2",
+    "@fortawesome/vue-fontawesome": "^3.0.8",
+    "@pinia-plugin-persistedstate/nuxt": "^1.2.1",
+    "@types/lodash": "^4.17.16",
+    "aos": "^2.3.4",
+    "gsap": "^3.12.7",
+    "lodash": "^4.17.21",
+    "nuxt": "^3.16.0",
+    "sharp": "^0.33.5",
+    "vanilla-tilt": "^1.8.1",
     "vue": "latest",
     "vue-router": "latest"
   },
@@ -19,10 +29,13 @@
     "vue": "latest"
   },
   "devDependencies": {
-    "@nuxt/image": "^1.8.1",
-    "@nuxt/scripts": "^0.9.5",
-    "@pinia/nuxt": "^0.7.0",
-    "nuxt-security": "^2.0.0",
-    "pinia-plugin-persistedstate": "^4.1.2"
+    "@nuxt/image": "^1.9.0",
+    "@nuxt/scripts": "^0.11.1",
+    "@pinia/nuxt": "^0.10.1",
+    "@types/aos": "^3.0.7",
+    "nuxt-security": "^2.2.0",
+    "pinia-plugin-persistedstate": "^4.2.0",
+    "sass": "^1.85.1",
+    "sass-embedded": "^1.85.1"
   }
 }

@@ -1,0 +1,59 @@
+# Journal des modifications avec GitHub Copilot
+
+## 2024-06-30
+- Correction du fichier `assets/scss/utils/_variables.scss` :
+  - Ajout de l'import `@use "sass:color";` pour utiliser le module de couleur Sass
+  - Remplacement des fonctions dépréciées `red()`, `green()` et `blue()` par les fonctions modernes `color.red()`, `color.green()` et `color.blue()`
+  - Mise à jour des fonctions dépréciées `color.red()`, `color.green()`, `color.blue()` vers `color.channel($color, "channel", $space: rgb)`
+  - Mise à jour des commentaires pour refléter l'utilisation des fonctions modernes
+
+- Correction du fichier `assets/scss/utils/_functions.scss` :
+  - Mise à jour des fonctions dépréciées dans les fonctions color-contrast(), contrast-color(), hex-to-rgb() et color-contrast()
+  - Remplacement par color.channel($color, "channel", $space: rgb) pour une meilleure compatibilité avec Dart Sass 3.0.0
+  - Ajout des imports nécessaires (@use "sass:color", @use "sass:meta", @use "sass:list")
+  - Mise à jour des fonctions hue(), saturation(), lightness() et alpha() vers leur équivalent color.hue(), color.saturation(), color.lightness() et color.alpha()
+  - Remplacement de adjust-hue() par color.adjust($color, $hue: Xdeg)
+  - Remplacement de type-of() par meta.type-of()
+  - Remplacement de append() par list.append()
+  - Remplacement de percentage() par math.percentage()
+  - Remplacement de round() par math.round()
+  - Remplacement de random() par math.random()
+  - Remplacement de mix() par color.mix()
+  - Remplacement de map-has-key() par map.has-key()
+  - Mise à jour des commentaires
+
+- Correction du fichier `assets/scss/utils/_mixins.scss` :
+  - Remplacement de adjust-hue() par color.adjust() dans les mixins de gradient
+  - Ajout de l'import `@use "sass:meta";`
+  - Remplacement de type-of() par meta.type-of() dans le mixin apply-theme
+  - Remplacement de map-has-key() par map.has-key()
+  - Mise à jour des commentaires
+
+- Correction du fichier `assets/scss/utils/_valorant.scss` :
+  - Remplacement de adjust-hue() par color.adjust() dans les fonctions de gradient Valorant
+  - Remplacement de adjust-hue($color, 30deg) par color.adjust($color, $hue: 30deg)
+  - Mise à jour des commentaires
+
+- Correction du fichier `assets/scss/utils/_helpers.scss` :
+  - Remplacement de adjust-hue() par color.adjust() dans les classes utilitaires de gradient
+  - Mise à jour de la classe .valorant-gradient et .gradient-accent pour utiliser color.adjust()
+  - Mise à jour de la classe .valorant-border-accent et .gradient-border pour utiliser color.adjust()
+  - Mise à jour des commentaires
+
+- Correction du fichier `assets/scss/base/_base.scss` :
+  - Ajout de l'import `@use "sass:math";`
+  - Remplacement de percentage() par math.percentage()
+  - Mise à jour des commentaires
+
+- Correction du fichier `plugins/fontawesome.ts` :
+  - Ajout de l'import de defineNuxtPlugin depuis #app
+  - Ajout de l'export par défaut avec defineNuxtPlugin
+  - Correction de l'avertissement de build de Nuxt concernant l'absence d'export par défaut
+
+- Correction du fichier `pages/Valorant/index.vue` :
+  - Ajout de l'import `@use "sass:color";`
+  - Remplacement de toutes les occurrences de adjust-hue($color-primary, 45deg) par color.adjust($color-primary, $hue: 45deg)
+  - Mise à jour des dégradés dans les styles .agent-card, .agent-name, .map-name et .background-gradient
+  - Mise à jour des commentaires
+
+Toutes ces modifications ont été effectuées pour assurer la compatibilité avec la future version Dart Sass 3.0.0 et moderniser le code en utilisant les modules Sass recommandés.
